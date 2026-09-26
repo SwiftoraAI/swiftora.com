@@ -31,7 +31,7 @@
     "download": {
       "id": "download",
       "eyebrow": "Available for iPhone",
-      "heading": "Take Swiftora with you.",
+      "heading": "Get Swiftora for iPhone.",
       "body": "Find Swiftora on the App Store.",
       "qrLabel": "Scan with your iPhone to open the App Store.",
       "qrAlt": "QR code for Swiftora on the App Store",
@@ -90,8 +90,8 @@
       "title": "Swiftora for iPhone | Listing assistance and ROI tracking",
       "description": "Meet Swiftora, an iPhone app for resale sellers with listing assistance and ROI tracking. Available on the App Store.",
       "eyebrow": "Swiftora for iPhone",
-      "heading": "For the finds you sell.",
-      "intro": "Listing assistance and ROI tracking for your resale routine. Meet Swiftora on iPhone.",
+      "heading": "Listing help for secondhand sellers.",
+      "intro": "Work on your resale listings and track ROI in Swiftora. Made for the way you sell secondhand.",
       "primaryAction": {
         "label": "View on the App Store",
         "linkKey": "appStore"
@@ -123,7 +123,7 @@
         {
           "id": "plans",
           "eyebrow": "Plans",
-          "heading": "Start with the app.",
+          "heading": "Plans are in the app.",
           "body": "Swiftora is free to download, with in-app purchases available. Review current plans, prices and usage limits in the app.",
           "action": {
             "label": "Pricing information",

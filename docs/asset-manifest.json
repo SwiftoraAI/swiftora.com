@@ -65,12 +65,12 @@
       "width": 1200,
       "height": 630,
       "format": "PNG",
-      "bytes": 51501,
+      "bytes": 52722,
       "budgetBytes": 200000,
-      "sha256": "c829d820194404480fd713e73d8b26fae22e1c7866360070224aaf2937fc929b",
+      "sha256": "29490fa7278f0d3f8cebc6c0504c6eaa8a80edc6954006fae511b1f50886c95b",
       "placement": "Open Graph and social card metadata",
       "crop": "Full 1200x630 composition; test platform crops before production release",
-      "alt": "Swiftora: A little help for your resale day. Listing assistance and ROI tracking. Available for iPhone.",
+      "alt": "Swiftora: For the way you sell secondhand. Listing assistance and ROI tracking. Available for iPhone.",
       "productScreen": false,
       "productMediaProvenanceRequired": false
     }

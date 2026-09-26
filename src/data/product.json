@@ -2,8 +2,8 @@
   "availableFor": "iPhone",
   "downloadNote": "Free to download. In-app purchases available.",
   "features": [
-    { "id": "listing", "title": "Listing assistance", "description": "A little help with your resale listings.", "evidence": "Store-published; owner confirmed basic functionality on 2026-09-26." },
-    { "id": "roi", "title": "ROI tracking", "description": "Keep ROI in view as part of your resale routine.", "evidence": "Owner-confirmed on 2026-09-26; exact screen and calculation behavior pending." }
+    { "id": "listing", "title": "Listing assistance", "description": "Get help with your next resale listing.", "evidence": "Store-published; owner confirmed basic functionality on 2026-09-26." },
+    { "id": "roi", "title": "ROI tracking", "description": "Keep track of your return on investment.", "evidence": "Owner-confirmed on 2026-09-26; exact screen and calculation behavior pending." }
   ],
   "showExactPlans": false,
   "plans": [],
