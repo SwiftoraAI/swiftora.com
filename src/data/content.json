@@ -1,0 +1,365 @@
+{
+  "brand": {
+    "name": "Swiftora",
+    "tagline": "Listing assistance. ROI tracking.",
+    "copyrightName": "{{operator}}"
+  },
+  "navigation": [
+    {
+      "label": "Get started",
+      "href": "/demo.html"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pricing.html"
+    },
+    {
+      "label": "About",
+      "href": "/about.html"
+    },
+    {
+      "label": "Support",
+      "href": "/support.html"
+    }
+  ],
+  "common": {
+    "primaryAction": {
+      "label": "View on the App Store",
+      "linkKey": "appStore"
+    },
+    "downloadNote": "Free to download. In-app purchases available.",
+    "download": {
+      "id": "download",
+      "eyebrow": "Available for iPhone",
+      "heading": "Take Swiftora with you.",
+      "body": "Find Swiftora on the App Store.",
+      "qrLabel": "Scan with your iPhone to open the App Store.",
+      "qrAlt": "QR code for Swiftora on the App Store",
+      "action": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      }
+    }
+  },
+  "footer": {
+    "description": "An iPhone app for resale sellers.",
+    "groups": [
+      {
+        "label": "Swiftora",
+        "links": [
+          {
+            "label": "Get started",
+            "href": "/demo.html"
+          },
+          {
+            "label": "Pricing",
+            "href": "/pricing.html"
+          },
+          {
+            "label": "About",
+            "href": "/about.html"
+          },
+          {
+            "label": "Support",
+            "href": "/support.html"
+          }
+        ]
+      },
+      {
+        "label": "Privacy and terms",
+        "links": [
+          {
+            "label": "Website privacy",
+            "href": "/privacy.html"
+          },
+          {
+            "label": "App privacy",
+            "linkKey": "appPrivacy"
+          },
+          {
+            "label": "Terms of use",
+            "linkKey": "terms"
+          }
+        ]
+      }
+    ]
+  },
+  "pages": {
+    "home": {
+      "path": "/",
+      "title": "Swiftora for iPhone | Listing assistance and ROI tracking",
+      "description": "Meet Swiftora, an iPhone app for resale sellers with listing assistance and ROI tracking. Available on the App Store.",
+      "eyebrow": "Swiftora for iPhone",
+      "heading": "For the finds you sell.",
+      "intro": "Listing assistance and ROI tracking for your resale routine. Meet Swiftora on iPhone.",
+      "primaryAction": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      },
+      "secondaryAction": {
+        "label": "Explore Swiftora",
+        "href": "#features"
+      },
+      "sections": [
+        {
+          "id": "features",
+          "eyebrow": "Made for resale",
+          "heading": "A place for your listing work.",
+          "items": [
+            {
+              "heading": "Listing assistance",
+              "body": "Work on listings for the secondhand items you sell."
+            },
+            {
+              "heading": "ROI tracking",
+              "body": "Keep track of ROI as part of your resale routine."
+            },
+            {
+              "heading": "Your judgment",
+              "body": "Check item details and your asking price before publishing."
+            }
+          ]
+        },
+        {
+          "id": "plans",
+          "eyebrow": "Plans",
+          "heading": "Start with the app.",
+          "body": "Swiftora is free to download, with in-app purchases available. Review current plans, prices and usage limits in the app.",
+          "action": {
+            "label": "Pricing information",
+            "href": "/pricing.html"
+          }
+        }
+      ]
+    },
+    "how": {
+      "path": "/demo.html",
+      "title": "Get started with Swiftora | iPhone app",
+      "description": "Get Swiftora for iPhone and explore listing assistance and ROI tracking for resale sellers.",
+      "eyebrow": "Get started",
+      "heading": "Meet Swiftora on iPhone.",
+      "intro": "Bring listing assistance and ROI tracking into your resale routine.",
+      "primaryAction": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      },
+      "sections": [
+        {
+          "heading": "Getting started",
+          "ordered": true,
+          "items": [
+            {
+              "heading": "Get the iPhone app",
+              "body": "Open Swiftora on the App Store to download the app and check device requirements."
+            },
+            {
+              "heading": "Explore Swiftora",
+              "body": "Find listing assistance, ROI tracking and current plan details in the app."
+            },
+            {
+              "heading": "Review before publishing",
+              "body": "Confirm the details of your item and choose an asking price you're comfortable with."
+            }
+          ]
+        },
+        {
+          "heading": "Need a hand?",
+          "body": "Find contact information and useful links on our support page.",
+          "action": {
+            "label": "Swiftora support",
+            "href": "/support.html"
+          }
+        }
+      ]
+    },
+    "pricing": {
+      "path": "/pricing.html",
+      "title": "Swiftora pricing | Plans in the iPhone app",
+      "description": "Swiftora is free to download, with in-app purchases available. Review current plans, prices and usage limits in the app.",
+      "eyebrow": "Pricing",
+      "heading": "Explore the app. Review your options.",
+      "intro": "Swiftora is free to download, with in-app purchases available.",
+      "primaryAction": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      },
+      "sections": [
+        {
+          "heading": "Plan details in one place",
+          "body": "Open Swiftora to review current plans, prices and usage limits before subscribing."
+        },
+        {
+          "heading": "Subscriptions",
+          "body": "Paid subscriptions renew automatically unless canceled. Review the billing period, price and renewal terms shown at purchase."
+        },
+        {
+          "heading": "Questions about Swiftora?",
+          "body": "Visit support for contact information and links to app privacy and terms.",
+          "action": {
+            "label": "Swiftora support",
+            "href": "/support.html"
+          }
+        }
+      ]
+    },
+    "about": {
+      "path": "/about.html",
+      "title": "About Swiftora | For resale sellers",
+      "description": "Swiftora brings listing assistance and ROI tracking to iPhone for people who sell secondhand items.",
+      "eyebrow": "About Swiftora",
+      "heading": "For people who see potential in secondhand.",
+      "intro": "Swiftora is an iPhone app for resale sellers, with listing assistance and ROI tracking.",
+      "primaryAction": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      },
+      "sections": [
+        {
+          "heading": "Your knowledge of the item comes first.",
+          "body": "Every resale item has details that matter. Check its condition, measurements and other facts before publishing. You decide what to say and what to charge."
+        },
+        {
+          "heading": "Get in touch",
+          "body": "Have a question about Swiftora? We'd like to hear from you.",
+          "action": {
+            "label": "Contact support",
+            "href": "/support.html"
+          }
+        }
+      ]
+    },
+    "support": {
+      "path": "/support.html",
+      "title": "Swiftora support",
+      "description": "Contact Swiftora support and find links to the App Store, app privacy and terms of use.",
+      "eyebrow": "Support",
+      "heading": "How can we help?",
+      "intro": "Email us about Swiftora at {{supportEmail}}.",
+      "primaryAction": {
+        "label": "Email Swiftora support",
+        "linkKey": "support"
+      },
+      "sections": [
+        {
+          "heading": "Help us understand the issue",
+          "body": "Include your app version, iPhone model and a short description of what happened. Please leave out passwords and payment information."
+        },
+        {
+          "heading": "Where can I get Swiftora?",
+          "body": "Swiftora is available on the App Store. The listing includes current device requirements.",
+          "action": {
+            "label": "View on the App Store",
+            "linkKey": "appStore"
+          }
+        },
+        {
+          "heading": "Where can I see plans and usage limits?",
+          "body": "Open the app to review current plan and purchase details."
+        },
+        {
+          "heading": "Privacy and terms",
+          "body": "The app and this website have separate privacy policies.",
+          "links": [
+            {
+              "label": "App privacy",
+              "linkKey": "appPrivacy"
+            },
+            {
+              "label": "Website privacy",
+              "href": "/privacy.html"
+            },
+            {
+              "label": "Terms of use",
+              "linkKey": "terms"
+            }
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "path": "/privacy.html",
+      "title": "Website privacy | Swiftora",
+      "description": "How the Swiftora website handles information, hosting and support correspondence. The iPhone app has a separate privacy policy.",
+      "eyebrow": "Privacy",
+      "heading": "Website privacy",
+      "updated": "September 26, 2026",
+      "intro": "{{operator}} operates the website at swiftora.com. This policy covers the website. The Swiftora iPhone app has a separate privacy policy.",
+      "sections": [
+        {
+          "heading": "Browsing this website",
+          "body": "You can browse without an account. This website has no signup, upload or contact forms and does not run advertising or analytics scripts. It uses fonts available on your device and locally served graphics."
+        },
+        {
+          "heading": "Previous website visits",
+          "body": "An earlier version of this website saved signup details in your browser. Those details may remain in that browser. This version does not read or send them. You can remove them by clearing stored site data in your browser settings."
+        },
+        {
+          "heading": "Website hosting",
+          "body": "This website is hosted on GitHub Pages. GitHub records visitors' IP addresses for security purposes. GitHub's privacy statement explains its handling of this information.",
+          "links": [
+            {
+              "label": "GitHub privacy statement",
+              "linkKey": "githubPrivacy"
+            }
+          ]
+        },
+        {
+          "heading": "Emailing Swiftora",
+          "body": "When you email us, we receive your email address and the information you include. We use that correspondence to respond to your request."
+        },
+        {
+          "heading": "Links to other services",
+          "body": "Links to the App Store and other external services take you to services with their own privacy practices. The app privacy policy explains information handled by the Swiftora iPhone app.",
+          "links": [
+            {
+              "label": "App privacy policy",
+              "linkKey": "appPrivacy"
+            }
+          ]
+        },
+        {
+          "heading": "Questions or requests",
+          "body": "Email {{supportEmail}} with questions about this website or requests concerning information you have shared with us.",
+          "action": {
+            "label": "Email Swiftora",
+            "linkKey": "support"
+          }
+        }
+      ]
+    },
+    "thankYou": {
+      "path": "/thank-you.html",
+      "title": "Swiftora is available for iPhone",
+      "description": "Find Swiftora on the App Store.",
+      "eyebrow": "Available now",
+      "heading": "Swiftora is available for iPhone.",
+      "intro": "Find listing assistance and ROI tracking in the Swiftora app.",
+      "primaryAction": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      },
+      "secondaryAction": {
+        "label": "Back to home",
+        "href": "/"
+      },
+      "sections": []
+    },
+    "notFound": {
+      "path": "/404.html",
+      "title": "Page not found | Swiftora",
+      "description": "Return to Swiftora or open the app on the App Store.",
+      "eyebrow": "Page not found",
+      "heading": "We couldn't find that page.",
+      "intro": "Explore Swiftora or open the app listing.",
+      "primaryAction": {
+        "label": "Back to home",
+        "href": "/"
+      },
+      "secondaryAction": {
+        "label": "View on the App Store",
+        "linkKey": "appStore"
+      },
+      "sections": []
+    }
+  }
+}

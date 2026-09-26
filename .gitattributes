@@ -1,0 +1,3 @@
+* text=auto
+public/service-worker.js text eol=lf
+*.png binary

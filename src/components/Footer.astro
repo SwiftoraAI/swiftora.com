@@ -1,0 +1,10 @@
+---
+import { site, content, href } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand"><a class="brand" href="/" aria-label="Swiftora home"><img src="/assets/brand/wordmark.png" width="1536" height="453" alt="" loading="lazy" /></a><p>{content.footer.description}</p><a class="footer-app-link" href={site.appStoreUrl} data-cta="footer">View on the App Store <span aria-hidden="true">↗</span></a></div>
+    {content.footer.groups.map(group => <div><h2>{group.label}</h2><ul>{group.links.map(link => <li><a href={href(link)}>{link.label}</a></li>)}</ul></div>)}
+  </div>
+  <div class="shell footer-bottom"><p>© {site.copyrightYear} {site.operator}</p><a href={`mailto:${site.supportEmail}`} data-cta="support-footer">{site.supportEmail}</a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+</footer>

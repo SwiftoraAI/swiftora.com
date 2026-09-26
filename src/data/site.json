@@ -1,0 +1,16 @@
+{
+  "name": "Swiftora",
+  "canonicalOrigin": "https://www.swiftora.com",
+  "appStoreUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+  "appStoreId": "6760380351",
+  "supportEmail": "info@swiftora.com",
+  "operator": "Swiftora LLC",
+  "appPrivacyUrl": "https://swiftora-backend-production.up.railway.app/privacy",
+  "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+  "socialTitle": "A little help for your resale day.",
+  "socialDescription": "Listing assistance and ROI tracking. Available for iPhone.",
+  "defaultDescription": "Meet Swiftora, an iPhone app with listing assistance and ROI tracking for resale sellers. Find it on the App Store.",
+  "reviewedOn": "2026-09-26",
+  "copyrightYear": "2026",
+  "githubPrivacyUrl": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+}
