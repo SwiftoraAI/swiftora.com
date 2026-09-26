@@ -1,31 +1,27 @@
 # Publishing the new Swiftora site on GitHub Pages
 
-Prepared 26 September 2026 from read-only repository checks and current official documentation. No remote push, PR, merge, settings change or deployment was performed. The requested style revision is still preview work; asking how to publish does not approve a final production release.
+Updated 26 September 2026. The review branch `codex/swiftora-postlaunch` was initially pushed at `4943517d7c716bd4aa8a2872150697009801646e`, and [draft pull request #2](https://github.com/SwiftoraAI/swiftora.com/pull/2) targets `one-pager`. [Validation run 36269710784](https://github.com/SwiftoraAI/swiftora.com/actions/runs/36269710784) succeeded for that revision. This status update changes documentation only; the PR shows the latest revision and checks. No production merge, Pages settings change or deployment was performed as part of this work. Publishing the final site still requires explicit production release approval.
 
 ## What is ready and what must be confirmed
 
 The new site builds with `npm run build`; `npm run verify` checks the intended **`dist/` artifact**. The repository root contains retained legacy pages, prototypes and documents and must not be the new publication directory. GitHub recommends an Actions build for generators such as this Astro project. [GitHub publishing-source documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), [Astro Pages guide](https://docs.astro.build/en/guides/deploy/github/).
 
-Current public evidence:
+Current authenticated repository evidence, checked 26 September 2026:
 
 - Repository: [SwiftoraAI/swiftora.com](https://github.com/SwiftoraAI/swiftora.com), default branch `one-pager`, `has_pages: true`.
-- Default head: `5b3021014948d416098fd47c70188614a3f8bbce`; latest observed [successful Pages run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756) used that branch/revision. Repository last-pushed metadata remains April 9, 2026.
-- Remote branches are `one-pager` and `homepage-refresh`. Neither current tree contains a checked-in `.github/` workflow. The new local `codex/swiftora-postlaunch` branch is not yet on the remote.
-- Local `validate.yml` runs only on pull requests/manual invocation and has no deployment step. The optional `deploy-pages.yml.example` beside this guide is dormant documentation, not an active workflow.
+- Production/default head remains `5b3021014948d416098fd47c70188614a3f8bbce`.
+- Pages reports `build_type: legacy`, source branch `one-pager`, source path `/`, custom domain `www.swiftora.com`, `https_enforced: true` and status `built`.
+- The uploaded review branch is `codex/swiftora-postlaunch`. Its `validate.yml` runs only on pull requests/manual invocation and has no deployment step. The optional `deploy-pages.yml.example` beside this guide is dormant documentation, not an active workflow.
 
-Authenticated [repository Pages settings](https://github.com/SwiftoraAI/swiftora.com/settings/pages) were unavailable. Before relying on branch isolation, read **Settings → Pages → Build and deployment** and record Source, branch/folder or workflow, current deployment, custom domain and HTTPS state. Also inspect existing deployment/environment protections and integrations. The public record strongly supports `one-pager` branch publishing, but does not prove the current account settings.
+The earlier read-only audit observed [successful Pages run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756) at the production revision above, an April 9, 2026 last-pushed timestamp, and only the `one-pager` and `homepage-refresh` remote branches. Those observations predate the review-branch push and are historical evidence. The later authenticated Pages response supersedes the audit's unknown-source finding.
 
-## Upload the review branch
+Before release, recheck [repository Pages settings](https://github.com/SwiftoraAI/swiftora.com/settings/pages) and record the current deployment, environment protections, integrations and recovery artifact. The verified branch-root publisher excludes the review branch, but **merging into `one-pager` can publish repository-root contents** independently of the validation workflow. Do not merge until the approved `dist/` publication path is configured and verified.
 
-A feature-branch push is a code-review step, not inherently a production release. Once the current Pages source is confirmed to exclude this branch, and no other deployment integration targets it, an authorized feature-branch push can proceed without treating it as gate 2. No checked-in automatic deployment path for this new branch was found in the inspected source.
+## Review branch status
 
-After committing the reviewed changes on the existing local feature branch, the upload command is:
+The feature-branch upload and draft PR are complete. Validation passed without deploying. Continue review in [draft PR #2](https://github.com/SwiftoraAI/swiftora.com/pull/2), keeping the production branch unchanged until release approval and configuration are complete.
 
-```powershell
-git push -u origin codex/swiftora-postlaunch
-```
-
-This command is supplied for the review step and has not been executed. Keep the existing production branch unchanged while the revised design and QA are reviewed. Earlier blanket “no push” wording in the runbook was a conservative hold while the publishing configuration was unknown; the actual production gate applies to production-connected changes and release actions, not a verified isolated review branch.
+An isolated review-branch push is a code-review step and does not itself constitute production release approval. Earlier blanket “no push” wording was a conservative hold while publishing configuration was unknown; gate 2 applies to production-connected merges, settings changes and release actions. The successful validation run does not verify domain ownership, historical service-worker behavior or rollback readiness.
 
 ## First production release, after approving the final preview
 
