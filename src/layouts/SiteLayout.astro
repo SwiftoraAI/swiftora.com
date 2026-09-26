@@ -4,13 +4,16 @@ import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 import '../styles/brand.css';
-interface Props { title: string; description: string; path: string; noindex?: boolean }
-const { title, description, path, noindex = false } = Astro.props;
+import '../styles/editorial.css';
+interface Props { title: string; description: string; path: string; noindex?: boolean; structuredData?: Record<string, unknown>[] }
+const { title, description, path, noindex = false, structuredData = [] } = Astro.props;
 const canonical = new URL(path, site.canonicalOrigin).href;
 const socialImage = `${site.canonicalOrigin}/assets/social-card.png`;
 const schema = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'WebSite', '@id': `${site.canonicalOrigin}/#website`, name: site.name, url: `${site.canonicalOrigin}/` },
   { '@type': 'Organization', '@id': `${site.canonicalOrigin}/#organization`, name: site.operator, url: `${site.canonicalOrigin}/`, email: site.supportEmail, logo: `${site.canonicalOrigin}/assets/brand/wordmark.png` },
+  { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${site.canonicalOrigin}/#website` } },
+  ...structuredData,
 ] };
 ---
 <!doctype html>

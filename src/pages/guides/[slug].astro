@@ -1,0 +1,44 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import GuideLinks from '../../components/GuideLinks.astro';
+import { guides, guidePath, site, type Guide } from '../../data/site';
+export function getStaticPaths() {
+  return guides.map(guide => ({ params: { slug: guide.slug }, props: { guide } }));
+}
+interface Props { guide: Guide }
+const { guide } = Astro.props;
+const path = guidePath(guide);
+const canonical = site.canonicalOrigin + path;
+const related = guide.relatedSlugs.map(slug => guides.find(item => item.slug === slug)).filter((item): item is Guide => Boolean(item));
+const structuredData = [
+  { '@type': 'Article', '@id': `${canonical}#article`, headline: guide.heading, description: guide.description, url: canonical, inLanguage: 'en', mainEntityOfPage: { '@id': `${canonical}#webpage` }, author: { '@id': `${site.canonicalOrigin}/#organization` }, publisher: { '@id': `${site.canonicalOrigin}/#organization` } },
+  { '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Swiftora', item: `${site.canonicalOrigin}/` },
+    { '@type': 'ListItem', position: 2, name: 'Seller guides', item: `${site.canonicalOrigin}/guides.html` },
+    { '@type': 'ListItem', position: 3, name: guide.heading, item: canonical },
+  ] },
+];
+---
+<SiteLayout title={guide.title} description={guide.description} path={path} structuredData={structuredData}>
+  <article>
+    <header class="article-header"><div class="shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Swiftora</a><span aria-hidden="true">/</span><a href="/guides.html">Seller guides</a></nav>
+      <p class="eyebrow">{guide.eyebrow}</p><h1>{guide.heading}</h1><p class="lead">{guide.intro}</p><p class="article-byline">By {site.operator} <span aria-hidden="true">·</span> Seller education</p>
+    </div></header>
+    <div class="shell article-layout">
+      <nav class="article-toc" aria-label="In this guide"><p class="eyebrow">In this guide</p><ol>{guide.sections.map(section => <li><a href={`#${section.id}`}>{section.heading}</a></li>)}</ol><a class="text-link" href="/demo.html">Explore Swiftora <span aria-hidden="true">↗</span></a></nav>
+      <div class="article-body">
+        {guide.sections.map((section, index) => <section id={section.id} aria-labelledby={`guide-heading-${index}`}>
+          <h2 id={`guide-heading-${index}`}>{section.heading}</h2>
+          {section.body && <p>{section.body}</p>}
+          {section.table && <table class="guide-table"><caption>{section.table.caption}</caption><thead><tr>{section.table.columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody>{section.table.rows.map(row => <tr>{row.map((cell, cellIndex) => cellIndex === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody></table>}
+          {section.paragraphs?.map(paragraph => <p>{paragraph}</p>)}
+          {section.items && <dl>{section.items.map(item => <div><dt>{item.heading}</dt><dd>{item.body}</dd></div>)}</dl>}
+          {section.list && <ul>{section.list.map(item => <li>{item}</li>)}</ul>}
+        </section>)}
+        <aside class="article-cta" aria-label="Swiftora for iPhone"><p class="eyebrow">Your next listing starts here</p><h2>Bring Swiftora into your resale routine.</h2><p>Listing assistance and ROI tracking for iPhone. Review current features and purchase details in the app.</p><a class="button" href={site.appStoreUrl} data-cta="article">View on the App Store <span aria-hidden="true">↗</span></a><p class="fine-print">Free to download. In-app purchases available.</p></aside>
+      </div>
+    </div>
+  </article>
+  {related.length > 0 && <section class="related-guides section-space"><div class="shell"><p class="eyebrow">Keep reading</p><h2>More for your next resale project.</h2><GuideLinks guides={related} /></div></section>}
+</SiteLayout>

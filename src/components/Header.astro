@@ -12,21 +12,25 @@ const { currentPath } = Astro.props;
     </nav>
   </swiftora-nav>
 </header>
-<script>
+<script is:inline>
+  // Upgrade the parsed header before main content can paint with expanded links.
+  // Without JavaScript, the navigation remains visible and usable.
+  (() => {
   class SwiftoraNav extends HTMLElement {
     connectedCallback() {
-      const button = this.querySelector<HTMLButtonElement>('button');
-      const nav = this.querySelector<HTMLElement>('nav');
+      const button = this.querySelector('button');
+      const nav = this.querySelector('nav');
       if (!button || !nav) return;
-      this.dataset.enhanced = 'true';
-      button.hidden = false;
       const close = () => button.setAttribute('aria-expanded', 'false');
       button.addEventListener('click', () => button.setAttribute('aria-expanded', String(button.getAttribute('aria-expanded') !== 'true')));
       this.addEventListener('keydown', event => {
         if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') { close(); button.focus(); }
       });
-      nav.addEventListener('click', event => { if ((event.target as HTMLElement).closest('a')) close(); });
+      nav.addEventListener('click', event => { if (event.target instanceof Element && event.target.closest('a')) close(); });
+      this.dataset.enhanced = 'true';
+      button.hidden = false;
     }
   }
   if (!customElements.get('swiftora-nav')) customElements.define('swiftora-nav', SwiftoraNav);
+  })();
 </script>

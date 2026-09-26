@@ -6,8 +6,12 @@
   },
   "navigation": [
     {
-      "label": "Get started",
+      "label": "How it works",
       "href": "/demo.html"
+    },
+    {
+      "label": "Seller guides",
+      "href": "/guides.html"
     },
     {
       "label": "Pricing",
@@ -31,8 +35,8 @@
     "download": {
       "id": "download",
       "eyebrow": "Available for iPhone",
-      "heading": "Get Swiftora for iPhone.",
-      "body": "Find Swiftora on the App Store.",
+      "heading": "Get Swiftora for your resale work.",
+      "body": "Listing assistance and ROI tracking, on your iPhone.",
       "qrLabel": "Scan with your iPhone to open the App Store.",
       "qrAlt": "QR code for Swiftora on the App Store",
       "action": {
@@ -42,14 +46,18 @@
     }
   },
   "footer": {
-    "description": "An iPhone app for resale sellers.",
+    "description": "Listing assistance and ROI tracking for independent secondhand sellers.",
     "groups": [
       {
         "label": "Swiftora",
         "links": [
           {
-            "label": "Get started",
+            "label": "How it works",
             "href": "/demo.html"
+          },
+          {
+            "label": "Seller guides",
+            "href": "/guides.html"
           },
           {
             "label": "Pricing",
@@ -87,88 +95,254 @@
   "pages": {
     "home": {
       "path": "/",
-      "title": "Swiftora for iPhone | Listing assistance and ROI tracking",
-      "description": "Meet Swiftora, an iPhone app for resale sellers with listing assistance and ROI tracking. Available on the App Store.",
-      "eyebrow": "Swiftora for iPhone",
-      "heading": "Listing help for secondhand sellers.",
-      "intro": "Work on your resale listings and track ROI in Swiftora. Made for the way you sell secondhand.",
+      "title": "Swiftora | Listing assistant for thrift, vintage and resale sellers",
+      "description": "Listing assistance and ROI tracking for thrift-store flippers, vintage sellers, collectors and estate-sale resellers. Get Swiftora for iPhone.",
+      "eyebrow": "For independent resale sellers · Available for iPhone",
+      "heading": "Good finds deserve",
+      "intro": "Swiftora is a listing assistant for thrift-store flippers, vintage sellers and collectors who sell. Get help with the listing work and track ROI on your iPhone.",
       "primaryAction": {
         "label": "View on the App Store",
         "linkKey": "appStore"
       },
       "secondaryAction": {
-        "label": "Explore Swiftora",
-        "href": "#features"
+        "label": "See where Swiftora fits",
+        "href": "#why"
       },
       "sections": [
         {
           "id": "features",
-          "eyebrow": "Made for resale",
-          "heading": "A place for your listing work.",
+          "eyebrow": "Inside Swiftora",
+          "heading": "The listing work. The return behind it.",
+          "body": "Getting an item ready to sell takes attention. So does understanding what a find gives back. Swiftora brings listing assistance and ROI tracking into the same iPhone app.",
           "items": [
             {
-              "heading": "Listing assistance",
-              "body": "Work on listings for the secondhand items you sell."
+              "heading": "Listing assistance for secondhand items",
+              "body": "Get help with your next resale listing while you bring the facts about the piece in front of you. Condition, measurements and the details that make it different still deserve your attention."
             },
             {
-              "heading": "ROI tracking",
-              "body": "Keep track of ROI as part of your resale routine."
-            },
-            {
-              "heading": "Your judgment",
-              "body": "Check item details and your asking price before publishing."
+              "heading": "ROI tracking alongside the listing work",
+              "body": "Keep return on investment in view as you work through your resale inventory. The next listing matters, and so does the return on the money you put into a find."
             }
           ]
         },
         {
           "id": "plans",
-          "eyebrow": "Plans",
-          "heading": "Plans are in the app.",
-          "body": "Swiftora is free to download, with in-app purchases available. Review current plans, prices and usage limits in the app.",
+          "eyebrow": "Getting started",
+          "heading": "Explore Swiftora on iPhone.",
+          "body": "Swiftora is free to download, with in-app purchases available. Review current plans, prices and usage limits in the app before subscribing.",
           "action": {
-            "label": "Pricing information",
+            "label": "Pricing and purchase information",
             "href": "/pricing.html"
           }
+        },
+        {
+          "id": "why",
+          "eyebrow": "Why Swiftora",
+          "heading": "Finding stock is only part of the job.",
+          "body": "The bag from the thrift shop or the box from an estate sale is the start. Next come the measurements, condition notes, photos and words that help a buyer understand the item. When every piece is different, one description cannot do the job for all of them.",
+          "items": [
+            {
+              "heading": "There is work between the find and the sale",
+              "body": "If you list after work or on weekends, that work competes with the rest of your life. Listing assistance gives you support with a task that starts again with each new piece of inventory."
+            },
+            {
+              "heading": "A selling price is only part of the picture",
+              "body": "A promising find needs to make sense as a resale purchase, too. What you paid and the costs of selling belong in your assessment. ROI tracking keeps return on investment part of the routine."
+            }
+          ]
+        },
+        {
+          "id": "audience",
+          "eyebrow": "Who it is for",
+          "heading": "Different finds. Familiar listing work.",
+          "body": "Swiftora is for independent sellers working with secondhand inventory: the pieces you thrift, collect, pick up locally or bring home from an estate sale.",
+          "items": [
+            {
+              "heading": "Thrift-store and side-hustle flippers",
+              "body": "For the seller turning a weekend haul into an evening of listings. Give each find the attention it needs while keeping the reason you bought it in view."
+            },
+            {
+              "heading": "Vintage and antique sellers",
+              "body": "A maker’s mark, a repair, a missing part or a worn finish can change how you describe a piece. You bring that knowledge; listing assistance supports the work of presenting it."
+            },
+            {
+              "heading": "Collectors who sell",
+              "body": "When it is time to let a piece go, the details you know can matter to the next collector. Explain what is included, describe its condition and keep its return in view."
+            },
+            {
+              "heading": "Estate-sale and mixed-inventory resellers",
+              "body": "Glassware, books, collectibles and household items can come home in the same box. Each needs its own facts and description, even when the finds came from one sale."
+            }
+          ],
+          "action": {
+            "label": "A practical thrift and vintage resale workflow",
+            "href": "/guides/thrift-vintage-resale-workflow.html"
+          }
+        },
+        {
+          "id": "workflow",
+          "eyebrow": "Before you publish",
+          "heading": "Keep the item’s real details at the center.",
+          "body": "A useful listing answers a buyer’s questions. These habits belong in your selling routine whether you are working on your first find or the next item in a full shelf of stock.",
+          "ordered": true,
+          "items": [
+            {
+              "heading": "Start with facts you can see",
+              "body": "Note dimensions, visible marks, wear, repairs and missing parts. Photograph the details you will need to explain later."
+            },
+            {
+              "heading": "Use assistance, then check the listing",
+              "body": "Bring your knowledge of the item to the listing work. Read each statement back against the piece itself, especially claims about condition, maker or age."
+            },
+            {
+              "heading": "Look at the return as well as the price",
+              "body": "Keep your purchase cost and the costs of selling in mind alongside the asking price. Review ROI as part of your own assessment of the find."
+            },
+            {
+              "heading": "Review it where you sell",
+              "body": "Before publishing on your chosen marketplace, check the photos, description and price together. Make sure the listing meets that marketplace’s requirements."
+            }
+          ],
+          "action": {
+            "label": "Use the secondhand listing checklist",
+            "href": "/guides/secondhand-listing-checklist.html"
+          }
+        },
+        {
+          "id": "questions",
+          "eyebrow": "A few practical questions",
+          "heading": "Know where Swiftora fits.",
+          "items": [
+            {
+              "heading": "What does Swiftora do today?",
+              "body": "The iPhone app offers listing assistance and ROI tracking for independent resale sellers. You bring your knowledge of the item and decide what to publish and what to charge."
+            },
+            {
+              "heading": "Does it post to eBay, Etsy or Facebook Marketplace?",
+              "body": "No. Swiftora does not connect to marketplaces or automatically publish listings. You publish and manage your listings on the marketplace you choose."
+            },
+            {
+              "heading": "Why track ROI when I already know my asking price?",
+              "body": "An asking price is what you hope to receive. What you paid for the item and the costs of selling also matter. Tracking ROI helps you pay attention to return as well as the next listing."
+            },
+            {
+              "heading": "Do I still need to check item details?",
+              "body": "Yes. Confirm measurements, condition and anything you say about the maker or age. Describe what you can support, and leave room for uncertainty when a detail is not established."
+            },
+            {
+              "heading": "Is Swiftora free to download?",
+              "body": "Yes. Swiftora is free to download, with in-app purchases available. Check current plans, prices, included usage and renewal terms in the app before subscribing."
+            }
+          ],
+          "links": [
+            {
+              "label": "Secondhand listing checklist",
+              "href": "/guides/secondhand-listing-checklist.html"
+            },
+            {
+              "label": "Resale ROI explained",
+              "href": "/guides/resale-roi-costs.html"
+            },
+            {
+              "label": "Plans and purchase details",
+              "href": "/pricing.html"
+            },
+            {
+              "label": "Ask Swiftora support",
+              "href": "/support.html"
+            }
+          ]
         }
-      ]
+      ],
+      "headingAccent": "more than a rushed listing."
     },
     "how": {
       "path": "/demo.html",
-      "title": "Get started with Swiftora | iPhone app",
-      "description": "Get Swiftora for iPhone and explore listing assistance and ROI tracking for resale sellers.",
-      "eyebrow": "Get started",
-      "heading": "Meet Swiftora on iPhone.",
-      "intro": "Bring listing assistance and ROI tracking into your resale routine.",
+      "title": "How Swiftora fits your resale routine | Listing assistance and ROI",
+      "description": "See where Swiftora’s listing assistance and ROI tracking fit into secondhand selling, from checking item details to reviewing a listing before publication.",
+      "eyebrow": "How it works",
+      "heading": "From a good find to the work of selling it.",
+      "intro": "Swiftora supports two parts of resale work: listing assistance and ROI tracking. Your knowledge of the item connects them. Here is a practical way to think about that work before you publish.",
       "primaryAction": {
         "label": "View on the App Store",
         "linkKey": "appStore"
       },
       "sections": [
         {
-          "heading": "Getting started",
-          "ordered": true,
+          "id": "get-the-app",
+          "heading": "Start with Swiftora on iPhone",
+          "body": "Download Swiftora from the App Store, then review the current plans and included usage in the app. The website’s seller guides can help you prepare the details and questions to bring to your listing work.",
+          "action": {
+            "label": "View on the App Store",
+            "linkKey": "appStore"
+          }
+        },
+        {
+          "id": "item-facts",
+          "heading": "Gather the details a buyer will ask about",
+          "body": "Secondhand inventory rarely arrives with a complete product description. Look at the actual item before deciding what to say about it. What you can measure or observe is a stronger starting point than a guess.",
           "items": [
             {
-              "heading": "Get the iPhone app",
-              "body": "Open Swiftora on the App Store to download the app and check device requirements."
+              "heading": "Condition and completeness",
+              "body": "Look for wear, stains, chips, repairs, missing parts and included accessories. Give those details the same attention as the features that made you pick up the item."
             },
             {
-              "heading": "Explore Swiftora",
-              "body": "Find listing assistance, ROI tracking and current plan details in the app."
+              "heading": "Marks, measurements and identity",
+              "body": "Record dimensions and visible labels or marks. Distinguish a mark you can see from a maker, date or material you have not established."
+            }
+          ],
+          "action": {
+            "label": "Read the secondhand listing checklist",
+            "href": "/guides/secondhand-listing-checklist.html"
+          }
+        },
+        {
+          "id": "listing-review",
+          "heading": "Use listing assistance with the item in mind",
+          "body": "Swiftora offers help with the listing work. Your review gives that work its connection to the actual piece: read for specific facts, useful condition information and questions a buyer might still have. Keep unsupported claims about age, authenticity or provenance out of the listing.",
+          "items": [
+            {
+              "heading": "Read it as a buyer",
+              "body": "Can someone tell what is included, how large it is and what condition it is in? Check that the description and photos tell the same story."
             },
             {
-              "heading": "Review before publishing",
-              "body": "Confirm the details of your item and choose an asking price you're comfortable with."
+              "heading": "Keep the description specific",
+              "body": "The finish, fit, visible wear or missing accessory can be more useful than a string of vague adjectives. Explain the details you would want to know before buying."
             }
           ]
         },
         {
-          "heading": "Need a hand?",
-          "body": "Find contact information and useful links on our support page.",
+          "id": "review-roi",
+          "heading": "Look beyond the asking price",
+          "body": "Swiftora includes ROI tracking. Alongside it, keep your own records of what you paid and the costs of selling. Fees, packing materials and shipping costs can change how a purchase looks by the time it sells. An expected return and a recorded sale are different things; make that distinction in your records.",
           "action": {
-            "label": "Swiftora support",
-            "href": "/support.html"
+            "label": "Understand resale ROI, costs and the formula",
+            "href": "/guides/resale-roi-costs.html"
           }
+        },
+        {
+          "id": "publish",
+          "heading": "Finish the listing on your chosen marketplace",
+          "body": "Review the final photos, description and asking price where you sell. Swiftora does not connect to marketplaces or automatically publish listings. You manage the listing and follow the rules of the marketplace you choose.",
+          "action": {
+            "label": "Build a practical resale workflow",
+            "href": "/guides/thrift-vintage-resale-workflow.html"
+          }
+        },
+        {
+          "id": "help",
+          "heading": "Need help with Swiftora?",
+          "body": "Contact support with a short description of the question, your app version and iPhone model. For listing preparation and resale recordkeeping, start with the seller guides.",
+          "links": [
+            {
+              "label": "Swiftora support",
+              "href": "/support.html"
+            },
+            {
+              "label": "All seller guides",
+              "href": "/guides.html"
+            }
+          ]
         }
       ]
     },
@@ -204,26 +378,75 @@
     },
     "about": {
       "path": "/about.html",
-      "title": "About Swiftora | For resale sellers",
-      "description": "Swiftora brings listing assistance and ROI tracking to iPhone for people who sell secondhand items.",
+      "title": "About Swiftora | Built for independent secondhand sellers",
+      "description": "Why Swiftora focuses on listing assistance and ROI tracking for thrift-store flippers, vintage sellers, collectors and estate-sale resellers.",
       "eyebrow": "About Swiftora",
-      "heading": "For people who see potential in secondhand.",
-      "intro": "Swiftora is an iPhone app for resale sellers, with listing assistance and ROI tracking.",
+      "heading": "Built around the work of secondhand selling.",
+      "intro": "A shelf of vintage glass, a stack of books or a weekend’s thrift finds can mean a different set of listing decisions for every item. Swiftora brings listing assistance and ROI tracking to iPhone for the independent sellers doing that work.",
       "primaryAction": {
         "label": "View on the App Store",
         "linkKey": "appStore"
       },
       "sections": [
         {
-          "heading": "Your knowledge of the item comes first.",
-          "body": "Every resale item has details that matter. Check its condition, measurements and other facts before publishing. You decide what to say and what to charge."
+          "id": "why-we-exist",
+          "eyebrow": "Why Swiftora exists",
+          "heading": "The work continues after the sourcing trip.",
+          "body": "For an independent reseller, finding stock is one part of the job. Inspecting it, taking photos, explaining its condition and preparing a listing all take attention. That work often happens around another job, family commitments or the next sourcing trip. Swiftora focuses on listing assistance and ROI tracking because both belong in that everyday routine."
         },
         {
-          "heading": "Get in touch",
-          "body": "Have a question about Swiftora? We'd like to hear from you.",
+          "id": "secondhand-details",
+          "heading": "One piece is rarely exactly like the next.",
+          "body": "Two similar-looking items may differ in size, condition, completeness or markings. A repaired handle, missing accessory or worn finish belongs in the description. The seller’s knowledge is part of what makes a secondhand listing useful, and assistance should leave room for that judgment."
+        },
+        {
+          "id": "our-sellers",
+          "heading": "For sellers who do the work themselves.",
+          "body": "Swiftora’s audience includes people selling vintage and collectibles on Etsy, hard goods and general resale on eBay, furniture and household finds through Facebook Marketplace, and items through other resale venues. You choose where to publish and continue to manage your listings there.",
+          "items": [
+            {
+              "heading": "Side-hustle and thrift-store flippers",
+              "body": "People making room for sourcing and listing around the rest of the week."
+            },
+            {
+              "heading": "Vintage and antique sellers",
+              "body": "Sellers working with pieces whose details, condition and history need careful description."
+            },
+            {
+              "heading": "Collectors who sell",
+              "body": "People passing pieces on to another collector and explaining what makes each one worth a closer look."
+            },
+            {
+              "heading": "Estate-sale resellers",
+              "body": "Sellers sorting varied finds and giving each item its own attention before listing."
+            }
+          ]
+        },
+        {
+          "id": "why-roi",
+          "heading": "Keep the return in the picture.",
+          "body": "Reselling involves money going out as well as money coming in. A promising asking price does not explain the whole purchase. ROI tracking belongs beside listing work because what you put into an item matters alongside what you hope to receive for it.",
           "action": {
-            "label": "Contact support",
-            "href": "/support.html"
+            "label": "Read about resale ROI and costs",
+            "href": "/guides/resale-roi-costs.html"
+          }
+        },
+        {
+          "id": "product-today",
+          "heading": "Where Swiftora fits today",
+          "body": "The current iPhone app offers listing assistance and ROI tracking. You continue to choose what you buy, what you say about it and where you sell. Swiftora does not connect to marketplaces or automatically publish listings.",
+          "action": {
+            "label": "How Swiftora fits your routine",
+            "href": "/demo.html"
+          }
+        },
+        {
+          "id": "contact",
+          "heading": "Tell us about your resale work.",
+          "body": "Questions about Swiftora or the listing work you need help with? Contact our support team. Swiftora LLC operates this website, and you can reach us at {{supportEmail}}.",
+          "action": {
+            "label": "Contact Swiftora",
+            "linkKey": "support"
           }
         }
       ]

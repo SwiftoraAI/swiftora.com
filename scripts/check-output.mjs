@@ -3,10 +3,34 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const outputRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../dist');
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const outputRoot = path.join(projectRoot, 'dist');
 const origin = 'https://www.swiftora.com';
 const appStore = 'https://apps.apple.com/us/app/swiftora/id6760380351';
-const indexablePages = ['index.html', 'about.html', 'pricing.html', 'demo.html', 'privacy.html', 'support.html'];
+const errors = [];
+const fail = message => errors.push(message);
+let guides;
+try {
+  guides = JSON.parse(await readFile(path.join(projectRoot, 'src/data/guides.json'), 'utf8'));
+  if (!Array.isArray(guides) || !guides.length) throw new Error('Expected a nonempty guide array.');
+  const slugs = new Set();
+  for (const guide of guides) {
+    if (!guide || typeof guide.slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(guide.slug) || slugs.has(guide.slug)) {
+      throw new Error('Guide slugs must be unique lowercase URL segments.');
+    }
+    slugs.add(guide.slug);
+  }
+  for (const guide of guides) {
+    if (!Array.isArray(guide.relatedSlugs) || guide.relatedSlugs.some(slug => !slugs.has(slug) || slug === guide.slug)) {
+      throw new Error('Guide relatedSlugs must reference other declared guides.');
+    }
+  }
+} catch (error) {
+  console.error(`Guide route data is missing or invalid: ${error.message}`);
+  process.exit(1);
+}
+const guidePages = guides.map(guide => `guides/${guide.slug}.html`);
+const indexablePages = ['index.html', 'about.html', 'pricing.html', 'demo.html', 'privacy.html', 'support.html', 'guides.html', ...guidePages];
 const noindexPages = ['thank-you.html', 'offline.html', '404.html'];
 const pages = [...indexablePages, ...noindexPages];
 const required = [...pages, 'robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll', 'favicon.png', 'assets/qr-app-store.svg', 'assets/social-card.png', 'service-worker.js'];
@@ -15,9 +39,7 @@ const allowedRootFiles = new Set([...required, 'social-card.png', 'social-card.w
 // have been inventoried. Current pages must not create a new registration.
 allowedRootFiles.add('service-worker.js');
 const allowedAssetExtensions = new Set(['.js', '.css', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.avif', '.ico', '.woff', '.woff2', '.mp4', '.webm', '.vtt']);
-const errors = [];
 const files = new Map();
-const fail = message => errors.push(message);
 
 async function walk(directory, prefix = '') {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -70,6 +92,28 @@ function attributes(tag) {
   return result;
 }
 function tags(text, name) { return [...text.matchAll(new RegExp(`<${name}\\b[^>]*>`, 'gi'))].map(match => attributes(match[0])); }
+function plainText(text) { return text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); }
+function structuredData(page, text) {
+  const nodes = [];
+  const collect = value => {
+    if (Array.isArray(value)) return value.forEach(collect);
+    if (!value || typeof value !== 'object') {
+      fail(`${page}: JSON-LD must contain an object or array of objects.`);
+      return;
+    }
+    nodes.push(value);
+    if (Object.hasOwn(value, '@graph')) collect(value['@graph']);
+  };
+  let count = 0;
+  for (const match of text.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)) {
+    if (attributes(match[1]).type?.toLowerCase() !== 'application/ld+json') continue;
+    count++;
+    try { collect(JSON.parse(match[2])); }
+    catch { fail(`${page}: invalid JSON-LD JSON.`); }
+  }
+  if (!count) fail(`${page}: structured data missing.`);
+  return nodes;
+}
 const html = new Map(pages.filter(page => files.has(page)).map(page => [page, files.get(page).toString('utf8')]));
 const ids = new Map([...html].map(([page, text]) => [page, new Set([...text.matchAll(/\bid\s*=\s*["']([^"']+)["']/g)].map(match => match[1]))]));
 const canonicalFor = page => origin + (page === 'index.html' ? '/' : '/' + page);
@@ -100,9 +144,22 @@ const forbiddenCopy = [
   /\byou['’]re on (?:the|our) list\b/i,
 ];
 for (const [page, text] of html) {
-  const canonical = tags(text, 'link').find(tag => tag.rel?.toLowerCase() === 'canonical');
-  if (canonical?.href !== canonicalFor(page)) fail(`${page}: canonical must be ${canonicalFor(page)}`);
+  const canonicals = tags(text, 'link').filter(tag => tag.rel?.toLowerCase() === 'canonical');
+  if (canonicals.length !== 1 || canonicals[0].href !== canonicalFor(page)) fail(`${page}: exactly one canonical must equal ${canonicalFor(page)}`);
   if (!/<title>\s*[^<]+<\/title>/i.test(text)) fail(`${page}: meaningful title missing.`);
+  const headings = [...text.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/gi)];
+  if (headings.length !== 1 || !plainText(headings[0][1])) fail(`${page}: exactly one nonempty H1 is required.`);
+  const schemaNodes = structuredData(page, text);
+  if (guidePages.includes(page)) {
+    const articles = schemaNodes.filter(node => [node['@type']].flat().some(type => ['Article', 'BlogPosting'].includes(type)));
+    if (articles.length !== 1) fail(`${page}: exactly one Article or BlogPosting schema is required.`);
+    else {
+      const article = articles[0];
+      if (typeof article.headline !== 'string' || !article.headline.trim()) fail(`${page}: article schema headline is missing.`);
+      const mainEntity = typeof article.mainEntityOfPage === 'string' ? article.mainEntityOfPage : article.mainEntityOfPage?.['@id'];
+      if (![article.url, mainEntity].includes(canonicalFor(page))) fail(`${page}: article schema must identify the page canonical.`);
+    }
+  }
   const meta = tags(text, 'meta');
   if (!meta.some(tag => tag.name?.toLowerCase() === 'description' && tag.content?.trim())) fail(`${page}: description missing.`);
   if (!meta.some(tag => tag.property === 'og:image' && tag.content)) fail(`${page}: social image metadata missing.`);
@@ -135,6 +192,24 @@ for (const [page, text] of html) {
   }
 }
 
+function hasPageLink(from, to) {
+  return tags(html.get(from) ?? '', 'a').some(tag => {
+    if (!tag.href) return false;
+    try { return new URL(tag.href.replaceAll('&amp;', '&'), canonicalFor(from)).href.split('#')[0] === canonicalFor(to); }
+    catch { return false; }
+  });
+}
+if (!hasPageLink('index.html', 'guides.html')) fail('index.html: guide hub must be reachable by an ordinary link.');
+for (const guide of guides) {
+  const page = `guides/${guide.slug}.html`;
+  if (!hasPageLink('guides.html', page)) fail(`guides.html: missing article link to ${page}`);
+  if (!hasPageLink(page, 'guides.html')) fail(`${page}: missing return link to the guide hub.`);
+  for (const slug of guide.relatedSlugs) {
+    const related = `guides/${slug}.html`;
+    if (!hasPageLink(page, related)) fail(`${page}: missing declared related-guide link to ${related}`);
+  }
+}
+
 for (const [filename, content] of files) {
   if (!filename.endsWith('.css')) continue;
   for (const match of content.toString('utf8').matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*?))\s*\)/g)) {
@@ -161,6 +236,6 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exitCode = 1;
 } else {
-  console.log(`Verified ${files.size} public files, ${html.size} HTML routes, local references, App Store links, legacy fragments, metadata, sitemap and output boundaries.`);
+  console.log(`Verified ${files.size} public files, ${html.size} HTML routes (${guidePages.length} guides), local references, App Store links, legacy fragments, H1s, JSON-LD, metadata, sitemap and output boundaries.`);
   console.log('Source/output checks only; browser, device, QR scanning and release verification remain separate.');
 }

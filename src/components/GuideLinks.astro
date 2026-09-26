@@ -1,0 +1,12 @@
+---
+import { guidePath, type Guide } from '../data/site';
+interface Props { guides: Guide[] }
+const { guides } = Astro.props;
+---
+<div class="guide-links">
+  {guides.map((guide, index) => <article class="guide-link-row">
+    <span class="guide-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+    <div><p class="eyebrow">{guide.eyebrow}</p><h3><a href={guidePath(guide)}>{guide.heading}<span aria-hidden="true"> ↗</span></a></h3><p>{guide.description}</p></div>
+    <a class="text-link guide-read" href={guidePath(guide)} aria-label={`Read: ${guide.heading}`}>Read guide <span aria-hidden="true">↗</span></a>
+  </article>)}
+</div>

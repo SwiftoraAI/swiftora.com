@@ -31,7 +31,7 @@
     lcp = { startTime: entry.startTime, renderTime: entry.renderTime, loadTime: entry.loadTime, size: entry.size, url: entry.url, element: entry.element?.tagName ?? null };
   });
   const clsSupported = observe('layout-shift', entry => {
-    if (!entry.hadRecentInput) shifts.push({ value: entry.value, startTime: entry.startTime });
+    if (!entry.hadRecentInput) shifts.push({ value: entry.value, startTime: entry.startTime, sources: (entry.sources ?? []).map(source => ({ tag: source.node?.tagName ?? null, id: source.node?.id ?? null, className: typeof source.node?.className === 'string' ? source.node.className : null, previousRect: source.previousRect, currentRect: source.currentRect })) });
   });
   const rect = element => {
     if (!element) return null;

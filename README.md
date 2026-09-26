@@ -2,7 +2,7 @@
 
 Static, iPhone-focused marketing site for Swiftora. The new site is built with Astro from `src/` and approved public assets in `public/`. It has no application backend, login, checkout, arbitrary upload, simulated AI demo, lead form or analytics service.
 
-This work is approved for **preview implementation only**. No production release, production-connected merge or hosting change is authorized. Remote push is held until publishing triggers can be verified safe for the preview branch. Read [the release runbook](docs/release-runbook.md) before any release work.
+The review branch is pushed and [draft PR #2](https://github.com/SwiftoraAI/swiftora.com/pull/2) contains the rebuild. Production release, a production-connected merge and hosting changes still require explicit release approval. Read [the publishing guide](docs/publishing-guide.md) and [release runbook](docs/release-runbook.md) before release work.
 
 ## Run locally
 
@@ -38,7 +38,7 @@ Open [the local preview](http://127.0.0.1:4321). The server binds only to `127.0
 | `dist/` | The only intended publication artifact. Generated, ignored by Git and verified before preview/release. |
 | Root legacy HTML/CSS/JS, `Logos/`, `claude.md/`, `netlify/`, `_headers`, `netlify.toml` | Retained historical/factual-milestone source. These files are not the new Astro source or a production publication directory. |
 
-The seven root legacy HTML files remain separate from the generated nine-page Astro site. Opening a root HTML file does not preview the new site. Old prototype functions, scripts and business documents also remain in the repository; their presence is not authorization to invoke or deploy them.
+The seven root legacy HTML files remain separate from the generated 13-page Astro site. The new site includes a seller-guide hub and three substantive articles sourced from `src/data/guides.json`. Opening a root HTML file does not preview the new site. Old prototype functions, scripts and business documents also remain in the repository; their presence is not authorization to invoke or deploy them.
 
 Automatic approval review rejected removal of the retained legacy source set because it included backend-adjacent files. The safe alternative is to retain that source outside the public build and verify that it is absent from `dist/`. No backend deletion was performed. Do not publish the repository root.
 
@@ -50,10 +50,12 @@ The retained `public/service-worker.js` is the audited network-only worker, pres
 
 For optional local browser diagnostics, visit [the instrumented preview](http://127.0.0.1:4321/?qa=1). The preview injects locally installed axe-core and the QA script only when requested; neither enters `dist/`. A hidden `#qa-results` element contains JSON when its `data-status` becomes `complete`. Reports include automated accessibility findings, layout/control measurements, image/resource status and limited instrumented initial-load performance observations. They do not establish WCAG conformance, field Core Web Vitals, INP or physical-iPhone behavior. Ordinary preview URLs have no instrumentation.
 
-The `.github/workflows/validate.yml` workflow validates pull requests/manual runs with read-only repository permission, pinned actions, disabled credential persistence and disabled Astro telemetry. It installs locked dependencies, builds and verifies. **No deployment workflow exists.** Existing GitHub Pages branch publishing is independent of this validation workflow and must be checked before any push or merge.
+The `.github/workflows/validate.yml` workflow validates pull requests/manual runs with read-only repository permission, pinned actions, disabled credential persistence and disabled Astro telemetry. It installs locked dependencies, builds and verifies. There is no active deployment workflow; `docs/deploy-pages.yml.example` is dormant. GitHub Pages currently publishes the root of `one-pager` independently of this validation workflow. Do not merge until the approved `dist/` publication path is configured and verified.
 
 ## Known release dependencies
 
-The verified production-correlated base is `one-pager` at `5b3021014948d416098fd47c70188614a3f8bbce`, corroborated by public byte comparisons and [successful Pages run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756). This does not establish the current authenticated Pages source folder, active deployment/environment or rollback controls.
+The verified production base is `one-pager` at `5b3021014948d416098fd47c70188614a3f8bbce`, corroborated by public byte comparisons and [successful Pages run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756). Authenticated settings checked on 26 September 2026 confirm legacy publishing from `one-pager`, path `/`, domain `www.swiftora.com`, and HTTPS enforcement. Environment and rollback controls remain release work.
 
-Production still requires authenticated Pages settings, approved publication of **only `dist/`**, historical worker checks, domain/control details, a recorded and rehearsed rollback path, completed QA and explicit approval of the exact release artifact. Real app screenshots/recordings and optional claims remain evidence-gated; they are not replaced with fabricated product imagery.
+Production still requires approved publication of **only `dist/`**, historical worker checks, domain/control details, a recorded and rehearsed rollback path, completed QA and explicit approval of the exact release artifact. Real app screenshots/recordings and optional claims remain evidence-gated; they are not replaced with fabricated product imagery.
+
+See [the search content strategy](docs/search-content-strategy.md) for audience and intent mapping, [content evidence](docs/content-evidence.md) for claim boundaries, and [content QA](docs/icp-content-qa.md) plus [browser checks](docs/content-browser-qa.md) for the expanded site's executed validation. Search visibility and AI citations are not guaranteed by local markup or content checks.
