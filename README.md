@@ -2,7 +2,7 @@
 
 Static, iPhone-focused marketing site for Swiftora. The new site is built with Astro from `src/` and approved public assets in `public/`. It has no application backend, login, checkout, arbitrary upload, simulated AI demo, lead form or analytics service.
 
-The review branch is pushed and [draft PR #2](https://github.com/SwiftoraAI/swiftora.com/pull/2) contains the rebuild. Production release, a production-connected merge and hosting changes still require explicit release approval. Read [the publishing guide](docs/publishing-guide.md) and [release runbook](docs/release-runbook.md) before release work.
+The review branch is pushed and [draft PR #2](https://github.com/SwiftoraAI/swiftora.com/pull/2) contains the rebuild. A manual release workflow and factual fallback are now prepared on the review branch. They have not been enabled for production or deployed. Explicit gate 2 approval is still pending for the Pages source change, production merge and publication. Read [the publishing guide](docs/publishing-guide.md) and [release runbook](docs/release-runbook.md) for the exact sequence.
 
 ## Run locally
 
@@ -15,6 +15,7 @@ $env:ASTRO_TELEMETRY_DISABLED = '1'
 npm ci --ignore-scripts
 npm run build
 npm run verify
+node scripts/check-release-fallback.mjs
 npm run preview
 ```
 
@@ -33,9 +34,12 @@ Open [the local preview](http://127.0.0.1:4321). The server binds only to `127.0
 | `public/` | Deliberate public files copied into the build, including the retained network-only worker. |
 | `scripts/generate-assets.mjs` | Deterministic brand, social and App Store QR generation. |
 | `scripts/check-output.mjs` | Route, reference, canonical, sitemap, App Store, public-file and safety checks. |
+| `scripts/check-release-fallback.mjs` | Strict validation of the fixed, prebuilt factual fallback. |
 | `scripts/preview.mjs`, `scripts/qa-browser.js` | Local-only preview and optional browser diagnostics. |
 | `design/`, `docs/` | Design sources, asset records and release documentation; never publish these directories. |
-| `dist/` | The only intended publication artifact. Generated, ignored by Git and verified before preview/release. |
+| `dist/` | Normal site publication artifact. Generated, ignored by Git and verified before preview/release. |
+| `release/fallback/` | Separate 19-file factual recovery artifact, retaining all 13 HTML routes. Publish only through the explicitly selected and approved fallback mode. |
+| `.github/workflows/deploy-pages.yml` | Prepared manual release workflow; fixed `site`/`fallback` modes, `one-pager` guard and exact approved SHA check. |
 | Root legacy HTML/CSS/JS, `Logos/`, `claude.md/`, `netlify/`, `_headers`, `netlify.toml` | Retained historical/factual-milestone source. These files are not the new Astro source or a production publication directory. |
 
 The seven root legacy HTML files remain separate from the generated 13-page Astro site. The new site includes a seller-guide hub and three substantive articles sourced from `src/data/guides.json`. Opening a root HTML file does not preview the new site. Old prototype functions, scripts and business documents also remain in the repository; their presence is not authorization to invoke or deploy them.
@@ -50,12 +54,16 @@ The retained `public/service-worker.js` is the audited network-only worker, pres
 
 For optional local browser diagnostics, visit [the instrumented preview](http://127.0.0.1:4321/?qa=1). The preview injects locally installed axe-core and the QA script only when requested; neither enters `dist/`. A hidden `#qa-results` element contains JSON when its `data-status` becomes `complete`. Reports include automated accessibility findings, layout/control measurements, image/resource status and limited instrumented initial-load performance observations. They do not establish WCAG conformance, field Core Web Vitals, INP or physical-iPhone behavior. Ordinary preview URLs have no instrumentation.
 
-The `.github/workflows/validate.yml` workflow validates pull requests/manual runs with read-only repository permission, pinned actions, disabled credential persistence and disabled Astro telemetry. It installs locked dependencies, builds and verifies. There is no active deployment workflow; `docs/deploy-pages.yml.example` is dormant. GitHub Pages currently publishes the root of `one-pager` independently of this validation workflow. Do not merge until the approved `dist/` publication path is configured and verified.
+The `.github/workflows/validate.yml` workflow validates pull requests/manual runs with read-only repository permission, pinned actions, disabled credential persistence and disabled Astro telemetry. It installs locked dependencies, builds, checks the normal output and validates the fallback. The prepared `.github/workflows/deploy-pages.yml` runs only on manual dispatch from `one-pager`; there is no push or PR deployment trigger. Its `site` mode uploads only verified `dist/`, while `fallback` uploads only verified `release/fallback/` without installing dependencies or building Astro. `docs/deploy-pages.yml.example` is an earlier dormant template; the prepared workflow is the release source of truth.
+
+GitHub Pages still publishes the root of `one-pager` independently of PR validation. After explicit release approval, switch Pages to GitHub Actions **before merging** the approved PR head. No DNS or secret changes are proposed.
 
 ## Known release dependencies
 
-The verified production base is `one-pager` at `5b3021014948d416098fd47c70188614a3f8bbce`, corroborated by public byte comparisons and [successful Pages run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756). Authenticated settings checked on 26 September 2026 confirm legacy publishing from `one-pager`, path `/`, domain `www.swiftora.com`, and HTTPS enforcement. Environment and rollback controls remain release work.
+Authenticated preflight on 26 September 2026 confirms repository admin access, production `one-pager` at `5b3021014948d416098fd47c70188614a3f8bbce`, legacy publishing from `/`, `www.swiftora.com`, HTTPS enforcement, and successful production deployment `4321615712`. The existing `github-pages` environment allows `main` and `one-pager`, has no reviewer rule, and will be preserved; the prepared workflow itself allows only `one-pager`. No repository webhooks were listed.
 
-Production still requires approved publication of **only `dist/`**, historical worker checks, domain/control details, a recorded and rehearsed rollback path, completed QA and explicit approval of the exact release artifact. Real app screenshots/recordings and optional claims remain evidence-gated; they are not replaced with fabricated product imagery.
+The pre-release settings record, source archive and 15 public resource checks and available snapshots/hashes have been saved outside the publication artifact. An isolated candidate → factual fallback → candidate recovery rehearsal passed 48/48 HTTP checks. This is not a production rollback test. Final approval must name the reviewed PR head and release artifact, including whether fallback publication is authorized on failure.
+
+Remaining release exceptions are real app media, physical iPhone/WebKit, screen-reader and zoom checks, and historical worker/cache behavior. Production rollback remains untested. Real app screenshots/recordings and optional claims remain evidence-gated; they are not replaced with fabricated product imagery.
 
 See [the search content strategy](docs/search-content-strategy.md) for audience and intent mapping, [content evidence](docs/content-evidence.md) for claim boundaries, and [content QA](docs/icp-content-qa.md) plus [browser checks](docs/content-browser-qa.md) for the expanded site's executed validation. Search visibility and AI citations are not guaranteed by local markup or content checks.

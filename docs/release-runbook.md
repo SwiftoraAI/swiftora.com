@@ -1,72 +1,59 @@
-# Swiftora release and rollback runbook
+# Swiftora release and recovery runbook
 
-Status: **proposal for a future authorized release; no deployment or rollback has been executed.** Implementation approval covers the preview. Gate 2 approval is required before any production-connected merge, production publication, hosting/settings change or DNS change. Remote push is held until publishing triggers can be verified safe for the preview branch.
+Status: **release preparation complete; explicit gate 2 approval pending.** The review branch and [draft PR #2](https://github.com/SwiftoraAI/swiftora.com/pull/2) exist. The manual workflow and factual fallback are prepared on that branch. No production merge, Pages source change, release dispatch or recovery publication has been performed. Review-branch pushes are distinct from production approval.
 
-## Verified baseline and unresolved controls
+## Authenticated baseline
 
-The exact website repository is `SwiftoraAI/swiftora.com`. The audited default branch is `one-pager` and its verified head is `5b3021014948d416098fd47c70188614a3f8bbce`. Public content hashes match sampled files from that revision. The latest observed successful [Pages build/deployment run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756) references the same branch/revision. DNS and HTTP evidence identify GitHub Pages, consistent with the owner's confirmation.
+The preflight record was captured at **2026-09-27 01:02:57 UTC** (26 September in the owner's local time):
 
-The active Pages settings, current deployment ID/environment, actual publishing branch/folder or Actions configuration, exact production build command, environment protection and domain verification/control have not been authenticated and inspected. The public Pages settings API returned an unauthenticated 404; browser settings required login. Those access results are not evidence that hosting is missing.
+- Repository `SwiftoraAI/swiftora.com`; authenticated account has admin permission.
+- Production/default branch `one-pager` at `5b3021014948d416098fd47c70188614a3f8bbce`.
+- Pages `build_type: legacy`, source `one-pager`, path `/`, status `built`, custom domain `www.swiftora.com`, HTTPS enforced.
+- Successful active production deployment `4321615712` at that SHA, associated with [Pages run 24211750756](https://github.com/SwiftoraAI/swiftora.com/actions/runs/24211750756).
+- Existing `github-pages` environment permits exact branches `main` and `one-pager`, with no reviewer rule. Preserve these settings; the prepared workflow independently restricts both jobs to `one-pager`. No repository webhooks were listed.
 
-There is one checked-in workflow, `validate.yml`, for build verification only. There is **no deploy workflow**. This does not disable GitHub's existing branch-based Pages publishing. A merge into the serving branch under old root-publishing settings could publish legacy/root files rather than the intended static artifact.
+These authenticated observations supersede the earlier audit's inaccessible-settings finding. Recheck for drift before approved release actions. No DNS, domain, HTTPS, environment-policy or secret changes are proposed.
 
-The new source is under `src/`; intended public assets are under `public/`; **only the verified contents of `dist/` may be published**. Retained root HTML, `netlify/` prototype source, business documents, build configuration, design sources, QA scripts and audit material must not be published. Automatic approval review rejected removal of the legacy source set because it included backend-adjacent files. Keeping those files outside the public artifact is the approved safe alternative; their deletion or deployment is not part of this release.
+## Prepared artifacts and checks
 
-## Gate 2 prerequisites
+Normal publication is the verified contents of `dist/`. Recovery publication is the separately verified contents of `release/fallback/`: 19 files, 13 HTML routes and 45,127 bytes, with factual availability content, useful privacy/support information, ordinary App Store links and the unchanged network-only worker. Only home, privacy and support are indexable in fallback mode.
 
-1. Obtain authenticated read access to Pages settings and record the current source branch/folder or workflow, active deployment/environment, build settings, permissions, domain verification and auto-publish triggers. Identify the authorized release operator and approver. Do not request or paste secret values.
-2. Confirm registrar/DNS account control, exact www/apex records, TLS/domain status and responsible owner. Preserve the domain/provider unless an unavoidable change is separately approved.
-3. Inspect current and historical service-worker scopes/caches in appropriate browser profiles. The existing network-only worker is retained unchanged and is not newly registered. Do not assume a clean local preview proves repeat-visit behavior on the production origin; do not delete registrations/caches blindly.
-4. Establish an approved publishing mechanism that deploys only `dist/`. Any Pages source/settings conversion or new deploy workflow is a separately reviewed part of gate 2. Do not add deployment permissions/secrets or push/merge while these controls remain unknown.
-5. Complete the accepted copy/product/privacy/support/asset review and the QA matrix. Record missing device/browser/assistive-technology coverage and obtain a decision on any unresolved release exception rather than marking unexecuted checks passed.
-6. Agree rollback triggers, operator, authority and the last-known-safe artifact/fallback. Rehearse recovery on an isolated preview before requesting release approval. Neither an old successful workflow badge nor this document proves rollback has been tested.
+`.github/workflows/deploy-pages.yml` accepts only manual `workflow_dispatch` with `release_mode: site` or `fallback`. It requires `one-pager` and an `approved_commit` matching the selected full 40-character SHA. Upload paths are fixed; no arbitrary path can be supplied. Both modes validate the fallback. Site mode installs locked dependencies, builds and verifies `dist/`; fallback mode uses the prebuilt files without npm installation or an Astro build. Pages/OIDC write permissions are confined to the deploy job. The workflow preserves the configured domain and does not enable Pages automatically.
 
-If a prerequisite is unresolved, continue local preview work and **stop remote push, production-connected merge, settings changes and publication**.
+Local checks passed: 18 workflow/guard assertions, the actual fallback validator, and seven artifact-validator cases covering valid output and rejection of unsafe or broken copies. An isolated candidate → fallback → candidate rehearsal passed **48/48 HTTP checks**. It did not deploy to GitHub Pages. PR validation now also checks the fallback; inspect the final PR revision and its checks before approval.
 
-## Prepare the reviewable artifact
-
-Use the tested Node 24.12.0 runtime and committed lockfile. From the repository root in PowerShell:
+For a fresh local build with the tested Node 24.12.0 runtime:
 
 ```powershell
 $env:ASTRO_TELEMETRY_DISABLED = '1'
 npm ci --ignore-scripts
 npm run build
 npm run verify
+node scripts/check-release-fallback.mjs
 npm run preview
 ```
 
-For a POSIX shell, use `export ASTRO_TELEMETRY_DISABLED=1` before the same npm commands. Dependency installation scripts stay disabled; the project's explicit build runs approved asset generation. Do not install, update or enable services as an incidental release step.
+For POSIX shells, set `export ASTRO_TELEMETRY_DISABLED=1` first. Installation scripts remain disabled; the explicit project build runs its approved asset-generation step. Local preview and `?qa=1` diagnostics are not production or field-performance tests.
 
-Save the exact candidate source commit, lockfile hash, runtime/tool versions, build command/log, `dist/` file manifest/hashes, approved claims/assets, test logs and screenshots. Ensure the release identifier actually includes the complete source changes; a prior factual-correction commit alone does not identify a still-uncommitted rebuild.
+## Recovery record and release exceptions
 
-Test the generated site through the local-only preview. Verify all App Store actions/QR destination, page and legacy-fragment behavior, actual missing-page 404, responsive/keyboard/accessibility behavior, required metadata, output boundaries and repeat visits. Optional `?qa=1` diagnostics must remain local-only. Their timings include instrumentation overhead and are not field measurements.
+The nonpublic audit workspace's `work/release-preflight/` contains the authenticated pre-release settings record, source archive, 15 public resource checks and available snapshots/hash evidence. Preserve this record and the reviewed normal/fallback manifests before publication. Seven-day Actions artifact retention is temporary evidence, not a durable backup.
 
-## Preserve the pre-deployment recovery record
+The old website contains misleading signup/demo/commerce content and exposed source documents, so its snapshot is historical recovery evidence, not the selected safe fallback. Retained legacy root HTML, prototype functions, business documents, design material and QA files must remain outside both publication artifacts. Their removal was previously blocked by automatic approval review as backend-adjacent; retention outside public output remains the safe alternative.
 
-Immediately before an authorized release, snapshot:
+Remaining exceptions to present with release approval: real app media; physical iPhone/WebKit, screen-reader and zoom checks; and historical service-worker registration/cache behavior. The worker is retained unchanged, and the new pages do not register it. Do not clear user caches or registrations blindly. **Production rollback is untested.** The isolated rehearsal does not establish production recovery or repeat-visit behavior.
 
-- Actual active deployment ID, deployed source revision, Pages source/build/environment settings, approval controls and exact publishing procedure.
-- Actual public HTML/assets and a file/hash manifest, headers/cache observations and critical URL behavior; retain only authorized copies in a nonpublic recovery location.
-- Current DNS/canonical/TLS details and any release-approved setting changes.
-- The deployable last-known-safe artifact, its lockfile/runtime where rebuilding is necessary, and a minimal truthful availability fallback.
-- Named release/rollback operator, approver, triggers and the approved scope for recovery actions.
+## Exact sequence after gate 2 approval
 
-Older live files contain known misleading signup/demo/commerce content. Do not automatically select those as the safe business fallback. Review/sanitize the fallback first, identify its exact bytes and test it on the isolated preview. Preserve any prior asset versions needed by cached HTML. Do not assume an expired Actions artifact or a rerun of an old job can recover the required files.
+1. **Confirm approval and revisions.** Record the final approved PR head, normal and fallback manifests, current production SHA, completed checks and accepted exceptions. Approval must cover the source switch, merge and site publication, and say whether fallback publication is authorized if verification fails. If the PR head or production baseline changes, reconcile it before proceeding.
+2. **Switch the publication source before merging.** Set Pages `build_type` to `workflow` (Settings → Pages → GitHub Actions), preserving `www.swiftora.com` and `https_enforced: true`. Read the settings back. Do not merge while the legacy branch-root publisher remains active: a merge can otherwise publish retained root files.
+3. **Merge the exact approved PR head.** Merge PR #2 into `one-pager` with an expected-head check. Record the resulting full merge SHA and verify it contains the reviewed release tree. A push or merge does not trigger the prepared manual workflow.
+4. **Dispatch the normal site.** Run **Release approved Swiftora Pages artifact** on `one-pager` with `approved_commit` equal to that resulting merge SHA and `release_mode: site`. Keep the existing environment policy; no new reviewer rule is required. The user's recorded release approval is the authorization gate. Record the run, artifact and deployment IDs.
+5. **Verify the public release.** Compare served bytes to the approved output, and check www/apex and HTTP/HTTPS behavior, all App Store links/QR, support/privacy, all 13 pages and legacy fragments, genuine 404s, resources, metadata/sitemap/robots, absence of source/prototype/QA files and unexpected data requests, and repeat-visit behavior. A successful workflow is not sufficient launch verification.
+6. **Recover only within the approved scope.** If a material defect meets the agreed triggers and fallback publication was authorized, dispatch the same workflow on the reviewed `one-pager` revision with its matching full `approved_commit` and `release_mode: fallback`. Verify actual public bytes and journeys again. If fallback was not authorized, obtain the required recovery approval rather than inferring it.
 
-## Request approval, then publish only as authorized
+## Recovery triggers and completion
 
-Present the exact commit/PR or source reference, immutable artifact manifest, preview, completed checks, remaining risks, proposed publishing/settings action and rehearsed recovery choice. **Stop for gate 2 approval.** A local build success or implementation approval is not release approval.
+Material recovery triggers include broken download/support/privacy journeys, materially incorrect product or commerce claims, unintended public files or data requests, and unusable rendering or missing resources. The prepared fallback is an explicit factual recovery publication; it does not restore the previous full site. Do not switch back to legacy root publishing as a shortcut.
 
-After approval, the authorized operator uses the verified publishing method to deploy precisely the approved artifact. Do not infer a deploy command from `netlify.toml`; the observed host is GitHub Pages. Record the resulting deployment ID, source/artifact hashes, time, operator and any explicitly approved setting changes. No such publishing method has been configured or executed by this local implementation.
-
-Verify the actual public website after publication: www/apex and HTTP/HTTPS behavior, served artifact hashes, every critical download/support/privacy destination, legacy fragments, 404s, metadata/indexability, absence of business/source/QA files and obsolete service requests, response headers, resource loads and existing-cache/repeat visits. A successful build/deploy job alone is insufficient.
-
-## Rollback after a release
-
-Use the agreed rollback scope if a primary download journey breaks, material claims/commerce are wrong, unexpected data requests/files become public, or rendering/resources fail materially. The authorized operator restores the recorded last-known-safe artifact or rehearsed truthful fallback through the **actual approved publishing method**.
-
-For branch publishing, recovery may require a reviewed revert/recovery revision on the confirmed serving branch. For artifact publishing, recovery may mean republishing the retained safe artifact. Choose only the path that was authenticated and rehearsed; this runbook does not assert either mechanism is currently configured. Do not force-push history, change DNS, rotate credentials or enable paid services without the relevant approval.
-
-Record the recovery source/deployment ID and artifact hashes. Recheck the public site after the restore/revert, including App Store actions, canonical redirects, pages/fragments, useful 404, assets, metadata, absence of unwanted files/requests, headers and repeat visits. Confirm recovery from actual public behavior and bytes, not merely the revert commit or workflow status. Preserve the failed release evidence for diagnosis, then document the incident and next review step.
-
-Rollback remains **untested in production**. Missing authenticated configuration and historical worker evidence remain explicit release dependencies.
+Record the recovery run/deployment ID, selected revision and artifact hashes; verify the actual public result, preserve failed-release evidence and document the incident. Returning to the full site requires the reviewed corrected artifact and the applicable approval. No force-push, DNS change, credential rotation, new secret or paid service is part of this procedure.

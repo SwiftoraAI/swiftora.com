@@ -34,6 +34,8 @@ jobs:
         run: npm run build
       - name: Verify public output
         run: npm run verify
+      - name: Verify the factual recovery artifact
+        run: node scripts/check-release-fallback.mjs
 
 # This workflow has no deployment job, Pages permission, environment, upload,
 # production credential, push trigger, or setting-changing step.
