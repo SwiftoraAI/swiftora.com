@@ -1,0 +1,15 @@
+---
+import PageContent from '../components/PageContent.astro';
+import { routes, type PageCopy } from '../data/site';
+export function getStaticPaths() {
+  const offline: PageCopy = {
+    path: '/offline.html', title: 'Reconnect to Swiftora', description: 'Reconnect to visit Swiftora or open the app on the App Store.',
+    eyebrow: 'Connection help', heading: 'Let’s get you connected.', intro: 'If you’re offline, reconnect to browse Swiftora or open its App Store listing.',
+    primaryAction: { label: 'Back to home', href: '/' }, secondaryAction: { label: 'View on the App Store', linkKey: 'appStore' }, sections: [],
+  };
+  return [...routes.map(([, page]) => page), offline].map(page => ({ params: { page: page.path.replace(/^\//, '').replace(/\.html$/, '') }, props: { page } }));
+}
+const { page } = Astro.props;
+const noindex = ['/thank-you.html', '/404.html', '/offline.html'].includes(page.path);
+---
+<PageContent page={page} noindex={noindex} />

@@ -1,0 +1,160 @@
+/* Brand refinement: exact identity colors from Swiftora Brand Guidelines v1.
+   Layout primitives remain in global.css; this layer owns branded treatments. */
+@layer brand {
+  :root { --paper:#fff; --surface:#f7f7f8; --ink:#111; --muted:#666; --purple:#372952; --violet:#6c63ff; --orange:#ff6b35; --plum:#140415; --line:#e5e7eb; }
+  h1,h2,h3 { font-weight:700; letter-spacing:-.035em; }
+  h1 { font-size:clamp(2.5rem,4.5vw,4rem); }
+  h2 { font-size:clamp(2rem,3vw,2.8rem); }
+  .eyebrow { font-size:.75rem; color:var(--link); letter-spacing:.105em; margin-bottom:22px; }
+  .fine-print { font-size:.82rem; }
+  .section-space { padding-block:86px; }
+  .button { border-radius:16px; font-size:.94rem; }
+  .button:hover { background:#ff8558; }
+  .button-secondary { color:var(--purple); border-color:#767676; }
+  .button-secondary:hover { background:var(--surface); }
+  .header-inner { min-height:88px; border-bottom:1px solid #ffffff20; }
+  .nav-links .nav-download { border-color:#857088; border-radius:12px; }
+  .nav-links a:hover,.nav-links a[aria-current=page] { text-decoration-color:var(--orange); }
+  .site-header :focus-visible,.site-footer :focus-visible,.home-hero :focus-visible { outline-color:#fcd297; }
+  .home-hero { padding-top:76px; color:white; background:radial-gradient(ellipse at 83% 53%,#5b182b55 0,transparent 56%),var(--plum); }
+  .hero-grid { grid-template-columns:1.42fr 1fr; gap:70px; }
+  .hero-copy h1 { font-size:clamp(3rem,4.8vw,4.3rem); line-height:1.075; letter-spacing:-.035em; }
+  .hero-copy h1 span { color:var(--orange); }
+  .hero-copy .lead { color:#d3c8d5; max-width:455px; font-size:1.1rem; }
+  .hero-copy .eyebrow { color:white; margin-bottom:26px; }
+  .availability-dot { width:8px; height:8px; background:var(--violet); border-radius:2px; }
+  .hero-copy .fine-print { color:#bdafc2; }
+  .hero-handoff { display:block; color:var(--ink); min-height:0; padding:0; background:white; border-radius:16px; box-shadow:0 25px 70px #0003; }
+  .hero-handoff::before,.hero-handoff::after { display:none; }
+  .handoff-heading { padding:29px 30px 25px; color:white; background:var(--purple); border-top:5px solid var(--violet); }
+  .handoff-heading .eyebrow { color:#e2dafa; margin-bottom:19px; font-size:.7rem; }
+  .handoff-heading > p { font-size:2.5rem; line-height:1.07; letter-spacing:-.04em; font-weight:650; }
+  .handoff-heading > p span { color:#ff986f; }
+  .handoff-capabilities { display:flex; flex-wrap:wrap; gap:8px 18px; padding-top:22px; margin-top:24px; border-top:1px solid #ffffff30; font-size:.75rem; }
+  .handoff-capabilities span { display:flex; align-items:center; gap:7px; }
+  .handoff-capabilities span::before { content:""; width:4px; height:4px; background:var(--orange); }
+  .handoff-capabilities span:last-child::before { background:#bdb9ff; }
+  .handoff-bottom { display:flex; gap:16px; margin-top:0; padding:24px 23px; align-items:center; }
+  .qr-link { border-radius:0; }
+  .qr-link img { width:125px; }
+  .handoff-bottom h2 { color:var(--purple); font-size:1.08rem; line-height:1.3; letter-spacing:-.02em; }
+  .handoff-bottom p { color:var(--muted); font-size:.78rem; line-height:1.5; margin-top:8px; }
+  .handoff-link { display:inline-flex; align-items:center; gap:10px; min-height:44px; color:var(--link); font-weight:600; font-size:.8rem; margin-top:4px; }
+  .hero-handoff .qr-link:focus-visible,.hero-handoff .handoff-link:focus-visible { outline-color:var(--link); }
+  .hero-footnote { color:#c4b9ca; margin-top:65px; padding-block:24px; border-top:1px solid #ffffff25; border-bottom:0; font-size:.66rem; letter-spacing:.08em; }
+  .hero-rule { background:none; }
+  .section-intro { display:flex; justify-content:space-between; align-items:end; gap:50px; margin-bottom:38px; }
+  .section-intro .eyebrow { margin:0 0 16px; }
+  .section-intro h2 { color:var(--purple); }
+  .section-intro > p { font-size:1.05rem; color:var(--muted); margin-bottom:5px; }
+  .feature-list { display:grid; grid-template-columns:1fr 1fr; gap:24px; border:0; }
+  .feature-panel { position:relative; padding:35px 36px 30px; border:1px solid var(--line); border-radius:16px; background:var(--surface); overflow:hidden; }
+  .feature-panel::after { content:""; position:absolute; width:88px; height:6px; right:36px; top:0; background:var(--orange); }
+  .feature-roi::after { background:var(--violet); }
+  .feature-icon { display:inline-flex; align-items:center; justify-content:center; width:54px; height:54px; color:var(--purple); border-radius:14px; background:white; border:1px solid var(--line); margin-bottom:29px; }
+  .feature-panel h3 { color:var(--purple); font-size:1.6rem; }
+  .feature-panel p { color:var(--muted); font-size:1rem; margin-top:15px; }
+  .feature-caption { display:block; margin-top:35px; padding-top:18px; border-top:1px solid #dedee4; color:#555; font-size:.8rem; }
+  .review-note { display:grid; grid-template-columns:180px 1fr auto; align-items:center; gap:30px; margin-top:30px; padding:20px 0 0; border:0; }
+  .review-note .review-label { color:var(--purple); font-size:.85rem; font-weight:650; line-height:1.6; }
+  .review-note p { font-size:.85rem; max-width:580px; }
+  .review-note .text-link { font-size:.85rem; white-space:nowrap; }
+  .home-pricing { background:var(--surface); border-block:1px solid var(--line); padding-block:56px; }
+  .pricing-strip { gap:80px; align-items:center; }
+  .pricing-strip h2 { color:var(--purple); font-size:2.2rem; }
+  .pricing-strip .eyebrow { margin-bottom:15px; }
+  .pricing-strip > div > p:not(.eyebrow) { font-size:1rem; }
+  .pricing-strip .text-link { font-size:.9rem; margin-top:14px; }
+  .download-section { color:white; background:var(--purple); padding-block:68px; border-bottom:1px solid #ffffff28; }
+  .download-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg,var(--orange) 0 38%,var(--violet) 38%); }
+  .download-section .eyebrow,.download-body,.download-qr p { color:#e2dafa; }
+  .download-section .fine-print { color:#d3c8e5; }
+  .download-section :focus-visible { outline-color:#fcd297; }
+  .site-footer { padding-top:54px; }
+  .footer-grid { padding-bottom:44px; }
+  .footer-grid h2 { color:#bbacc1; font-size:.7rem; }
+  .footer-grid li a { min-height:44px; }
+  .footer-bottom { font-size:.76rem; }
+  .page-intro { position:relative; background:var(--surface); border-bottom:1px solid var(--line); padding-block:72px 62px; }
+  .page-intro::before { content:""; position:absolute; top:0; left:0; width:72px; height:4px; background:var(--orange); }
+  .page-heading h1,.section-label h2,.step-list h3 { color:var(--purple); }
+  .page-body { padding-top:22px; padding-bottom:62px; }
+  .editorial-section { border-top:0; border-bottom:1px solid var(--line); }
+  .editorial-section:last-child { border-bottom:0; }
+  .section-number,.step-index { color:var(--link); font-size:.75rem; }
+  @media(max-width:1100px) {
+    .hero-grid { grid-template-columns:1.25fr 1fr; gap:38px; }
+    .hero-copy h1 { font-size:3.7rem; }
+    .hero-copy .actions { gap:10px 20px; }
+    .handoff-heading { padding:27px 25px 24px; }
+    .handoff-heading > p { font-size:2.3rem; }
+    .handoff-bottom { padding:19px; gap:13px; }
+    .qr-link img { width:112px; }
+    .review-note { grid-template-columns:150px 1fr auto; gap:22px; }
+  }
+  @media(max-width:800px) {
+    .header-inner { min-height:80px; }
+    .menu-toggle { border-color:#857088; border-radius:10px; }
+    .home-hero { padding-top:48px; }
+    .hero-grid { grid-template-columns:1.18fr 1fr; gap:28px; }
+    .hero-copy h1 { font-size:3rem; }
+    .hero-copy .lead { font-size:1rem; }
+    .hero-copy .button { font-size:.86rem; }
+    .hero-copy .fine-print { font-size:.75rem; }
+    .handoff-heading { padding:25px 23px 22px; }
+    .handoff-heading > p { font-size:2.1rem; }
+    .handoff-capabilities { flex-direction:column; gap:7px; margin-top:20px; padding-top:17px; }
+    .handoff-bottom { padding:16px 13px; gap:7px; }
+    .handoff-bottom h2 { font-size:.93rem; }
+    .handoff-bottom p,.handoff-link { font-size:.72rem; }
+    .hero-footnote { margin-top:42px; font-size:.58rem; gap:15px; }
+    .section-space { padding-block:62px; }
+    .section-intro { gap:28px; }
+    .section-intro > p { font-size:.95rem; max-width:255px; }
+    .feature-panel { padding:28px 25px 25px; }
+    .feature-panel p { font-size:.96rem; }
+    .review-note { grid-template-columns:1fr auto; gap:13px 30px; }
+    .review-label { grid-column:1/-1; }
+    .pricing-strip { gap:35px; }
+    .pricing-strip h2 { font-size:2rem; }
+    .page-intro { padding-block:58px 50px; }
+  }
+  @media(max-width:620px) {
+    .header-inner { min-height:76px; }
+    .home-hero { padding-top:40px; }
+    .hero-grid { display:block; }
+    .hero-copy .eyebrow { font-size:.71rem; margin-bottom:22px; }
+    .hero-copy h1 { font-size:clamp(2.35rem,10.7vw,2.9rem); letter-spacing:-.035em; }
+    .hero-copy .lead { font-size:1.02rem; max-width:390px; margin-top:22px; }
+    .hero-copy .actions { gap:9px 20px; margin-top:24px; }
+    .hero-copy .button { font-size:.87rem; padding:13px 18px; gap:20px; }
+    .hero-secondary { font-size:.84rem; }
+    .hero-copy .fine-print { font-size:.75rem; margin-top:10px; }
+    .hero-handoff { display:none; }
+    .hero-footnote { padding-block:22px; margin-top:35px; gap:12px; font-size:.55rem; letter-spacing:.045em; }
+    .hero-footnote > span:last-child { text-align:right; max-width:92px; }
+    .section-space { padding-block:48px; }
+    .section-intro { display:block; margin-bottom:27px; }
+    .section-intro .eyebrow { margin-bottom:14px; }
+    .section-intro h2 { font-size:2.15rem; }
+    .section-intro > p { font-size:1rem; margin-top:18px; max-width:360px; }
+    .desktop-break { display:none; }
+    .feature-list { grid-template-columns:1fr; gap:18px; }
+    .feature-panel { padding:27px; }
+    .feature-icon { margin-bottom:23px; }
+    .feature-panel h3 { font-size:1.55rem; }
+    .feature-caption { margin-top:27px; }
+    .review-note { display:block; margin-top:24px; padding-top:0; }
+    .review-note p { margin-top:10px; font-size:.87rem; }
+    .review-note .text-link { margin-top:9px; }
+    .pricing-strip > div + div { margin-top:21px; }
+    .download-section { padding-block:51px; }
+    .download-grid h2 { font-size:2.15rem; }
+    .site-footer { padding-top:39px; }
+    .footer-bottom { font-size:.72rem; }
+    .page-intro { padding-block:46px 42px; }
+    .page-intro h1 { font-size:2.4rem; line-height:1.12; }
+    .page-body { padding-block:4px 30px; }
+    .section-label h2 { font-size:1.35rem; }
+  }
+}

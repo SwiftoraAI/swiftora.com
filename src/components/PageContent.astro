@@ -1,0 +1,30 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ActionLink from './ActionLink.astro';
+import DownloadCTA from './DownloadCTA.astro';
+import { href, type PageCopy } from '../data/site';
+interface Props { page: PageCopy; noindex?: boolean }
+const { page, noindex = false } = Astro.props;
+const isPrivacy = page.path === '/privacy.html';
+const isUtility = ['/thank-you.html', '/404.html', '/offline.html'].includes(page.path);
+---
+<SiteLayout title={page.title} description={page.description} path={page.path} noindex={noindex}>
+  <section class:list={['page-intro', { 'page-intro-utility': isUtility }]}>
+    <div class="shell">
+      <div class="page-heading"><p class="eyebrow">{page.eyebrow}</p><h1>{page.heading}</h1><p class="lead">{page.intro}</p>{page.updated && <p class="fine-print">Last updated: {page.updated}</p>}</div>
+      {page.primaryAction && <div class="actions"><ActionLink action={page.primaryAction} placement="page-hero"/>{page.secondaryAction && <ActionLink action={page.secondaryAction} secondary placement="page-secondary" />}</div>}
+    </div>
+  </section>
+  {page.sections.length > 0 && <div class:list={['shell page-body', { 'legal-body': isPrivacy }]}>
+    {page.sections.map((section, index) => <section class="editorial-section" id={section.id} aria-labelledby={`section-${index}`}>
+      <div class="section-label"><span class="section-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h2 id={`section-${index}`}>{section.heading}</h2></div>
+      <div class="section-copy">
+        {section.body && <p>{section.body}</p>}
+        {section.items && <ol class="step-list">{section.items.map((item, itemIndex) => <li><span class="step-index" aria-hidden="true">{String(itemIndex + 1).padStart(2, '0')}</span><div><h3>{item.heading}</h3><p>{item.body}</p></div></li>)}</ol>}
+        {section.action && <a class="text-link" href={href(section.action)}>{section.action.label}<span aria-hidden="true"> ↗</span></a>}
+        {section.links && <ul class="resource-links">{section.links.map(link => <li><a href={href(link)}>{link.label}<span aria-hidden="true"> ↗</span></a></li>)}</ul>}
+      </div>
+    </section>)}
+  </div>}
+  {!isUtility && <DownloadCTA />}
+</SiteLayout>

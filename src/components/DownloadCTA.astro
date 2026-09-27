@@ -1,0 +1,12 @@
+---
+import ActionLink from './ActionLink.astro';
+import { content, product } from '../data/site';
+const { legacy = false, compact = false } = Astro.props;
+---
+<section class:list={['download-section', { compact }]} id="download" aria-labelledby="download-heading" tabindex="-1">
+  {legacy && <span id="waitlist" class="legacy-anchor" aria-hidden="true"></span>}
+  <div class="shell download-grid">
+    <div><p class="eyebrow">{content.common.download.eyebrow}</p><h2 id="download-heading">{content.common.download.heading}</h2><p class="download-body">{content.common.download.body}</p><ActionLink action={content.common.primaryAction} placement="download" /><p class="fine-print">{product.downloadNote}</p></div>
+    {!compact && <div class="download-qr"><img src="/assets/qr-app-store.svg" width="160" height="160" alt={content.common.download.qrAlt} loading="lazy"/><p>{content.common.download.qrLabel}</p></div>}
+  </div>
+</section>

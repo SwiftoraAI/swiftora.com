@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "secondhand-listing-checklist",
+    "title": "Secondhand listing checklist: photos, details and condition | Swiftora",
+    "description": "Prepare a clear secondhand listing with an item checklist for photos, measurements, condition, titles and a final review before you publish.",
+    "eyebrow": "Listing preparation",
+    "heading": "A secondhand listing checklist you can use for your next find.",
+    "intro": "A good resale listing gives a buyer enough detail to understand the actual item. Work through this checklist for a thrifted jacket, a collectible, or a household find before you publish.",
+    "readTime": "3 min read",
+    "sections": [
+      {
+        "id": "record-the-facts",
+        "heading": "Start with the item in front of you",
+        "paragraphs": [
+          "Write a short fact sheet before drafting the description. Record the item type, visible maker or brand, label text, color, dimensions, and what is included. Keep the item and its notes together with a simple inventory code, especially when several similar pieces arrive in one haul.",
+          "Separate observations from conclusions. A mark on the base is an observation; attributing an unmarked vase to a particular maker is a conclusion that needs support. Leave an uncertain material or date unconfirmed. A useful listing does not need a confident answer to every question."
+        ]
+      },
+      {
+        "id": "photograph-the-details",
+        "heading": "Photograph the details a buyer would inspect",
+        "paragraphs": [
+          "Use a plain background and consistent lighting so the item is easy to see. Check the photos against the object for color and visible wear. Keep any props clearly separate from what is being sold."
+        ],
+        "list": [
+          "Show the whole item, then its back, sides, and underside where relevant.",
+          "Capture labels, maker's marks, model numbers, closures, and included accessories.",
+          "Add a close view of each flaw and a wider view that shows its location.",
+          "Record measurements in text; a photo beside a ruler can provide supporting context."
+        ]
+      },
+      {
+        "id": "describe-condition",
+        "heading": "Describe condition with specifics",
+        "paragraphs": [
+          "Replace broad phrases such as 'great condition for its age' with observations. For clothing, check seams, fasteners, cuffs, lining, stains, and repairs. For hard goods, inspect edges, bases, missing parts, and signs of wear. State what you checked and avoid implying that untested functions work.",
+          "An illustrative condition note might read: 'Small chip on the underside of the rim, shown in the close-up. Light scuffing on the base. No lid included.' The note tells the buyer what to look for without suggesting that a photograph alone explains everything."
+        ]
+      },
+      {
+        "id": "write-the-title",
+        "heading": "Make the title identify the item",
+        "paragraphs": [
+          "Lead with the words that describe what you are selling. Add useful, verified details such as brand, item type, size, color, or material. Do not fill the title with unrelated brands, repeated adjectives, or unsupported claims like 'rare' and 'authentic'.",
+          "For a labeled denim jacket, an illustrative title is 'Blue denim jacket, size M, button front'. Use the actual label size and add measured dimensions in the description. If you can substantiate the brand or era, include it where helpful; do not guess to make the title sound stronger."
+        ]
+      },
+      {
+        "id": "finish-the-description",
+        "heading": "Answer the practical questions",
+        "paragraphs": [
+          "Build the description from the fact sheet: what the item is, its important measurements, its condition, and exactly what the buyer receives. Explain how a measurement was taken when that changes its meaning, such as a jacket's chest width measured flat.",
+          "Check the price, delivery or pickup arrangement, and any marketplace-specific fields separately. Requirements vary by platform and category, so review the current listing form before posting. A reusable checklist helps you remember the work; each unique item still needs its own inspection."
+        ]
+      },
+      {
+        "id": "review-before-publishing",
+        "heading": "Do one final comparison with the item",
+        "list": [
+          "Do the title, photos, condition notes, and selected fields describe the same item?",
+          "Are the units, measurements, included parts, and known flaws clear?",
+          "Have you removed claims about age, maker, material, or function that you cannot support?",
+          "Can you locate the item and its notes when a buyer asks a follow-up question?"
+        ],
+        "paragraphs": [
+          "Use this same review for a draft you write yourself or create with listing assistance. Swiftora offers listing assistance for secondhand sellers; your inspection remains the reference for the final listing."
+        ]
+      }
+    ],
+    "relatedSlugs": ["thrift-vintage-resale-workflow", "resale-roi-costs"]
+  },
+  {
+    "slug": "resale-roi-costs",
+    "title": "Resale ROI: item costs, profit and a worked formula | Swiftora",
+    "description": "Work through a simple resale ROI example, separate revenue from profit, and account for item costs, fees, postage and packaging consistently.",
+    "eyebrow": "Know your costs",
+    "heading": "Resale ROI starts with knowing what the sale cost you.",
+    "intro": "The gap between a purchase price and a selling price is only part of the picture. Work through a simple item-level cash-cost calculation with illustrative amounts, then use your own records to understand an actual sale.",
+    "readTime": "3 min read",
+    "sections": [
+      {
+        "id": "choose-a-consistent-basis",
+        "heading": "Define what your calculation includes",
+        "paragraphs": [
+          "For this guide, revenue is the item price plus shipping paid to you by the buyer. Item costs are the purchase cost and the direct cash costs of preparing and completing that sale. Item profit is revenue minus those costs. This is a limited per-item view, not your business's final take-home earnings.",
+          "Write down your definition and keep it consistent. Some sellers compare profit with purchase cost alone; this example compares it with all the direct item costs listed below. Both denominators can answer questions, but their percentages are different. Label the basis before comparing two results."
+        ]
+      },
+      {
+        "id": "collect-the-costs",
+        "heading": "Keep more than the purchase receipt",
+        "items": [
+          {
+            "heading": "Acquisition and preparation",
+            "body": "Record the item's purchase cost and any direct cleaning or repair expense. For a mixed lot, choose and record a reasonable allocation of the shared purchase price so no item's cost quietly disappears."
+          },
+          {
+            "heading": "Selling and payment fees",
+            "body": "Use the actual charges on the transaction record when available. Do not apply a remembered fee percentage to every sale; the platform, category, service, or promotion may change the amount."
+          },
+          {
+            "heading": "Postage and packaging",
+            "body": "Record the shipping label, box or mailer, and packing materials used. Shipping collected from the buyer is revenue in this example; postage paid is a separate cost. Do not subtract the same postage twice."
+          }
+        ]
+      },
+      {
+        "id": "worked-example",
+        "heading": "Work through one illustrative sale",
+        "table": {
+          "caption": "An illustrative sale, in dollars",
+          "columns": ["Transaction detail", "Amount"],
+          "rows": [
+            ["Item sale price", "$60"],
+            ["Shipping paid by the buyer", "$8"],
+            ["Total revenue", "$68"],
+            ["Item purchase cost", "$12"],
+            ["Preparation", "$2"],
+            ["Packaging", "$2"],
+            ["Postage", "$8"],
+            ["Selling and payment fees", "$9"],
+            ["Total direct item costs", "$33"],
+            ["Item profit", "$35"]
+          ]
+        },
+        "paragraphs": [
+          "Item profit = revenue − direct item costs. In this example: $68 − $33 = $35.",
+          "ROI on direct item costs = item profit ÷ direct item costs × 100. Here: $35 ÷ $33 × 100 = approximately 106.1%.",
+          "That percentage describes this defined calculation. It does not say how quickly the item sold, how much time the work took, or whether the seller's overall business was profitable. If the cost denominator is zero, this formula does not produce a meaningful percentage."
+        ]
+      },
+      {
+        "id": "roi-and-margin",
+        "heading": "Keep ROI, margin, and dollars separate",
+        "paragraphs": [
+          "Margin uses revenue as its denominator. For the same example, $35 ÷ $68 × 100 is approximately 51.5%. The sale has $35 of item profit, 106.1% ROI on the defined costs, and 51.5% margin. These describe the same transaction from different angles.",
+          "A high percentage on a low-cost item can still leave only a few dollars. Keep the dollar result next to the percentage, and record time spent separately if you want to understand how the work fits your schedule."
+        ]
+      },
+      {
+        "id": "reconcile-and-review",
+        "heading": "Update the record after the sale",
+        "paragraphs": [
+          "Before an item sells, label the numbers as estimates. Afterward, replace them with the transaction's actual price and charges. If a refund, return, or extra shipping cost occurs, update the record again instead of leaving the original result unchanged.",
+          "This simplified example omits taxes, general overhead, and the value of your labor. It is a bookkeeping illustration, not tax guidance. Keep those considerations separate and visible before treating an item calculation as a complete account of earnings.",
+          "Swiftora includes ROI tracking. When using any tracker, check its cost fields and calculation basis against your own records rather than assuming its percentage uses this guide's denominator."
+        ]
+      }
+    ],
+    "relatedSlugs": ["thrift-vintage-resale-workflow", "secondhand-listing-checklist"]
+  },
+  {
+    "slug": "thrift-vintage-resale-workflow",
+    "title": "A practical thrift and vintage resale workflow | Swiftora",
+    "description": "Build a repeatable resale routine from intake and item research to listing, storage and a sale review, with a practical small-batch example.",
+    "eyebrow": "Build a repeatable routine",
+    "heading": "A practical workflow for thrift and vintage resale.",
+    "intro": "A weekend haul can leave you with a pile of unrelated jobs: identify, inspect, photograph, write, store, and eventually ship. Give each item a clear next step so the work fits the time you have.",
+    "readTime": "3 min read",
+    "sections": [
+      {
+        "id": "intake",
+        "heading": "Give each find an identity at intake",
+        "paragraphs": [
+          "Start a record when the item comes home. A simple code such as V-014 can connect the receipt, notes, photos, and storage location. Record what you paid, where the item came from, and anything the seller told you. Treat a seller's story as a lead to investigate, not established provenance.",
+          "For an estate-sale lot, list the individual pieces before the bags and boxes get separated. Note missing parts or obvious damage now. You do not need a complex inventory system to begin; you need a record you can find again."
+        ]
+      },
+      {
+        "id": "inspect-and-research",
+        "heading": "Separate inspection from research",
+        "paragraphs": [
+          "Inspect the item and record visible facts first. Then make a short list of unanswered questions: maker, material, dimensions, condition, or function. A collector may know the terminology already; a thrift flipper with a mixed haul may need to work through each category separately.",
+          "When researching a maker or age, save the reference and what it actually establishes. A similar-looking object is a clue, not proof that your item is identical. Put unresolved items in a research queue instead of filling their descriptions with guesses."
+        ]
+      },
+      {
+        "id": "batch-the-repeatable-work",
+        "heading": "Batch the setup, inspect each item",
+        "paragraphs": [
+          "Choose a small group you can finish with the time available. Set up the photo area once, gather a ruler, and bring the items' records with you. Photograph the identifying marks and flaws while the objects are in hand, then return each one to its recorded location.",
+          "For an illustrative three-item batch, a jacket may need flat measurements, a vase may need a base-mark photo, and a board game may need a parts count. They share a photo session, but not the same inspection checklist. Keep their photos grouped by item code to prevent details from crossing between listings."
+        ]
+      },
+      {
+        "id": "draft-and-check",
+        "heading": "Draft from your notes, then check the listing",
+        "paragraphs": [
+          "Use the item record to write a clear title, description, and condition notes. Read the draft beside the photos and the object. Remove unsupported claims, fill in missing measurements, and make sure the included pieces are explicit.",
+          "Choose your marketplace and complete its current category and delivery fields. Sellers may use eBay, Etsy, or Facebook Marketplace, but this workflow does not imply that Swiftora connects to those services. Handle publishing in the marketplace you use, and keep a reference to the live listing in your record."
+        ]
+      },
+      {
+        "id": "track-the-next-step",
+        "heading": "Make the next action visible",
+        "paragraphs": [
+          "Use a short set of statuses that describes actual work. For example: needs inspection, needs research, ready for photos, ready to list, listed, and sold. Assign one next action to an item that has stalled, such as 'measure sleeve length' rather than 'finish jacket'.",
+          "Review the queue before starting another batch. If everything is waiting for photographs, more drafting will not clear that bottleneck. Pick a manageable session around the work that is holding items up, and leave enough space to keep listed stock findable."
+        ]
+      },
+      {
+        "id": "close-the-loop",
+        "heading": "Close the record after the sale",
+        "paragraphs": [
+          "Confirm the correct item and included pieces before packing. Record the actual sale amount, fees, packaging, and postage, then update the item after any later refund or return. Compare the actual costs with the estimate so the next sourcing decision starts with better information.",
+          "Swiftora's listing assistance and ROI tracking can fit into this wider routine. Start with the parts you need, and keep responsibility for inspection, research, publishing, and fulfillment clear. A repeatable process should help you find the next useful action, even when every item is different."
+        ]
+      }
+    ],
+    "relatedSlugs": ["secondhand-listing-checklist", "resale-roi-costs"]
+  }
+]

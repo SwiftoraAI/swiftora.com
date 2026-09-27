@@ -1,0 +1,101 @@
+# DORMANT EXAMPLE. GitHub does not execute workflows from docs/.
+# Copy to .github/workflows/deploy-pages.yml only during reviewed release setup.
+# Confirm Pages Source = GitHub Actions, the existing custom domain, and the
+# github-pages environment's one-pager restriction / reviewer gate first.
+name: Release approved Swiftora Pages artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      approved_commit:
+        description: Full 40-character SHA of the approved one-pager release
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+concurrency:
+  group: swiftora-pages-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/one-pager'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Require the approved selected revision
+        env:
+          APPROVED_COMMIT: ${{ inputs.approved_commit }}
+        run: |
+          node <<'NODE'
+          const approved = process.env.APPROVED_COMMIT || '';
+          if (!/^[a-f0-9]{40}$/i.test(approved) || approved.toLowerCase() !== process.env.GITHUB_SHA) {
+            console.error('The approved full SHA must match the selected one-pager revision.');
+            process.exit(1);
+          }
+          NODE
+      - name: Read the selected source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Use the tested runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.12.0'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Build the static site
+        run: npm run build
+      - name: Verify the public artifact
+        run: npm run verify
+      - name: Upload only verified public output
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist
+          include-hidden-files: true # verifier permits only intentional .nojekyll
+          retention-days: 7
+
+  deploy:
+    if: github.ref == 'refs/heads/one-pager'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Read the existing Pages configuration
+        id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+        with:
+          enablement: false
+      - name: Require the existing Swiftora domain
+        env:
+          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          node <<'NODE'
+          const actual = new URL(process.env.PAGES_BASE_URL);
+          if (actual.origin !== 'https://www.swiftora.com' || !['', '/'].includes(actual.pathname)) {
+            console.error('Pages is not configured for the approved Swiftora domain root.');
+            process.exit(1);
+          }
+          NODE
+      - name: Publish the verified artifact
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        with:
+          artifact_name: github-pages
+
+# No push, pull_request or workflow_run trigger. No auto-enablement or DNS change.
+# This is a reviewed starting template, not a tested production deployment or
+# rollback claim. The actual environment protections must exist before activation.

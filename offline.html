@@ -1,23 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swiftora — Offline</title>
-  <link rel="stylesheet" href="/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>You&#x27;re offline | Swiftora</title>
+  <meta name="description" content="Reconnect to find Swiftora on the App Store.">
+  <link rel="canonical" href="https://www.swiftora.com/offline.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="You&#x27;re offline | Swiftora">
+  <meta property="og:description" content="Reconnect to find Swiftora on the App Store.">
+  <meta property="og:url" content="https://www.swiftora.com/offline.html">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="Logos/swiftora_icon_192x192.png" sizes="192x192">
+  <link rel="stylesheet" href="style.css">
   <style>
-    main { max-width: 640px; margin: 40px auto; text-align: center; }
-    .card { border:1px solid #e5e7eb; border-radius:16px; padding:16px; background:#fff; }
-  </style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .interim-container { width: min(100% - 40px, 1080px); margin-inline: auto; }
+    .interim-header { background: #372952; color: #fff; padding: 22px 0; }
+    .interim-header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 28px; }
+    .interim-logo { display: block; width: 180px; height: auto; }
+    .interim-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+    .interim-nav a, .interim-footer a { text-decoration: underline; text-underline-offset: 4px; }
+    .interim-nav a { display: inline-flex; min-height: 44px; align-items: center; }
+    .interim-nav .interim-store { padding: 9px 16px; border: 1px solid #fff; border-radius: 10px; }
+    .interim-main { padding-block: clamp(40px, 7vw, 88px); }
+    .interim-intro { max-width: 780px; margin-bottom: 44px; }
+    .interim-eyebrow { color: #372952; font-size: .875rem; font-weight: 700; letter-spacing: .06em; margin-bottom: 12px; }
+    .interim-main h1 { font-size: clamp(2.25rem, 5.5vw, 4rem); line-height: 1.12; letter-spacing: -.035em; margin-bottom: 22px; overflow-wrap: anywhere; }
+    .interim-intro > p:not(.interim-eyebrow):not(.interim-note) { font-size: 1.15rem; max-width: 66ch; }
+    .interim-main p { max-width: 72ch; }
+    .interim-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-block: 26px 12px; }
+    .interim-main a:not(.interim-button) { color: #372952; text-decoration: underline; text-underline-offset: 4px; }
+    .interim-button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 20px; background: #372952; color: #fff; border-radius: 10px; font-weight: 700; text-align: center; }
+    .interim-note { color: #555; font-size: .9rem; }
+    .interim-section { padding-block: 32px; border-top: 1px solid #ddd; }
+    .interim-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; margin-bottom: 16px; }
+    .interim-section h3 { font-size: 1.125rem; margin-bottom: 8px; }
+    .interim-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 28px; padding-top: 8px; }
+    .interim-steps { list-style: decimal; padding-left: 24px; }
+    .interim-steps li { padding-left: 8px; margin-block: 22px; }
+    .interim-action { margin-top: 20px; }
+    .interim-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 20px; }
+    .interim-download { margin-top: 32px; padding: 32px; background: #f7f7f8; border-radius: 16px; }
+    .interim-download h2 { font-size: 1.75rem; margin-bottom: 12px; }
+    .interim-download .interim-button { margin-block: 20px 12px; }
+    .interim-footer { background: #372952; color: #fff; padding-block: 36px; }
+    .interim-footer-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-block: 20px; }
+    .interim-copyright { font-size: .9rem; }
+    a:focus-visible { outline: 3px solid #b74616; outline-offset: 5px; }
+    .interim-header a:focus-visible, .interim-footer a:focus-visible { outline-color: #fff; }
+    .interim-skip { position: absolute; left: 16px; top: -100px; padding: 12px; background: #fff; color: #111; z-index: 2000; }
+    .interim-skip:focus { top: 12px; }
+    .interim-legacy-anchor { display: block; scroll-margin-top: 24px; }
+    @media (max-width: 480px) { .interim-container { width: calc(100% - 32px); } .interim-nav { gap: 6px 16px; } .interim-download { padding: 24px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
 <body>
-  <main>
-    <h1>Offline</h1>
-    <div class="card">
-      <p>You’re offline right now. You can still view cached pages.</p>
-      <p>When you’re back online, the demo will stream results again.</p>
-      <p><a class="btn primary-btn" href="/index.html">Go Home</a></p>
+  <a class="interim-skip" href="#main">Skip to content</a>
+  <header class="interim-header">
+    <div class="interim-container interim-header-inner">
+      <a href="index.html" aria-label="Swiftora home"><img class="interim-logo" src="swiftora_logo_transparent.png" width="1536" height="453" alt="Swiftora"></a>
+      <nav class="interim-nav" aria-label="Main navigation"><a href="demo.html">Get started</a> <a href="pricing.html">Pricing</a> <a href="about.html">About</a> <a href="mailto:info@swiftora.com">Support</a> <a class="interim-store" href="https://apps.apple.com/us/app/swiftora/id6760380351">View on the App Store</a></nav>
     </div>
+  </header>
+  <main class="interim-main interim-container" id="main">
+    <div class="interim-intro">
+      <p class="interim-eyebrow">Offline</p>
+      <h1>You&#x27;re offline.</h1>
+      
+      <p>Reconnect to open Swiftora on the App Store.</p>
+      <div class="interim-actions"><a class="interim-button" href="https://apps.apple.com/us/app/swiftora/id6760380351">View on the App Store</a>
+<a href="index.html">Back to home</a></div>
+      <p class="interim-note">Free to download. In-app purchases available.</p>
+    </div>
+    
+    <section class="interim-download" id="download" aria-labelledby="download-title">
+      <span class="interim-legacy-anchor" id="waitlist" aria-hidden="true"></span>
+      <h2 id="download-title">Get Swiftora for iPhone.</h2>
+      <p>Find Swiftora on the App Store.</p>
+      <a class="interim-button" href="https://apps.apple.com/us/app/swiftora/id6760380351">View on the App Store</a>
+      <p class="interim-note">Free to download. In-app purchases available.</p>
+    </section>
   </main>
+  <footer class="interim-footer">
+    <div class="interim-container">
+      <p>Listing assistance. ROI tracking.</p>
+      <nav aria-label="Footer navigation" class="interim-footer-links"><a href="https://apps.apple.com/us/app/swiftora/id6760380351">App Store</a> <a href="mailto:info@swiftora.com">Support</a> <a href="privacy.html">Website privacy</a> <a href="https://swiftora-backend-production.up.railway.app/privacy">App privacy</a> <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of use</a></nav>
+      <p class="interim-copyright">© 2026 Swiftora LLC</p>
+    </div>
+  </footer>
 </body>
 </html>

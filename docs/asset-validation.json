@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-09-26T20:55:21.972Z",
+  "method": "Local generated-file verification; QR SVG rasterized by sharp and decoded by jsQR at 112/125/152/160/256/512px, including current CSS display sizes",
+  "source": "src/data/site.json",
+  "appStoreUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+  "appStoreId": "6760380351",
+  "originalWordmarkPreserved": true,
+  "originalFaviconPreserved": true,
+  "qr": {
+    "path": "public/assets/qr-app-store.svg",
+    "sha256": "d25e5b1653c29fd13e10c5b125a94f4860a07b546dfba46ce942a458942b3af1",
+    "errorCorrection": "M",
+    "quietZoneModules": 4,
+    "checks": [
+      {
+        "width": 112,
+        "height": 112,
+        "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+        "matches": true
+      },
+      {
+        "width": 125,
+        "height": 125,
+        "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+        "matches": true
+      },
+      {
+        "width": 152,
+        "height": 152,
+        "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+        "matches": true
+      },
+      {
+        "width": 160,
+        "height": 160,
+        "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+        "matches": true
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+        "matches": true
+      },
+      {
+        "width": 512,
+        "height": 512,
+        "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+        "matches": true
+      }
+    ],
+    "physicalScanTested": false
+  },
+  "social": {
+    "path": "public/assets/social-card.png",
+    "width": 1200,
+    "height": 630,
+    "bytes": 52722,
+    "maxBytes": 200000,
+    "sha256": "29490fa7278f0d3f8cebc6c0504c6eaa8a80edc6954006fae511b1f50886c95b",
+    "title": "For the way you sell secondhand.",
+    "description": "Listing assistance and ROI tracking. Available for iPhone.",
+    "productScreenshot": false
+  }
+}

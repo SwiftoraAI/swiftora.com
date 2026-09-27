@@ -1,0 +1,4 @@
+* text=auto
+public/service-worker.js text eol=lf
+release/fallback/** text eol=lf
+*.png binary

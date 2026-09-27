@@ -1,0 +1,95 @@
+{
+  "sourceCommit": "5b3021014948d416098fd47c70188614a3f8bbce",
+  "approvedScope": "Preview website assets; no production publication or native app changes",
+  "assets": [
+    {
+      "path": "public/assets/brand/wordmark.png",
+      "source": "Original swiftora_logo_transparent.png",
+      "rights": "Existing Swiftora brand asset reused for authorized website preview",
+      "decision": "Keep exact original bytes",
+      "owner": "Swiftora / Eric Elder",
+      "width": 1536,
+      "height": 453,
+      "format": "PNG RGBA",
+      "bytes": 244915,
+      "budgetBytes": 244915,
+      "sha256": "429668f4249deb6002b87174775489b23cf86f812a807db0fd4d583c6c7c24cd",
+      "placement": "Dark plum header and footer",
+      "crop": "None; preserve aspect ratio; no color or filter changes",
+      "alt": "Swiftora; home link has accessible name Swiftora home",
+      "productScreen": false
+    },
+    {
+      "path": "public/favicon.png",
+      "source": "Original Logos/swiftora_icon_192x192.png",
+      "rights": "Existing Swiftora identity reused unchanged",
+      "decision": "Keep existing interim favicon",
+      "owner": "Swiftora / Eric Elder",
+      "width": 192,
+      "height": 192,
+      "format": "PNG RGBA",
+      "bytes": 10011,
+      "budgetBytes": 10011,
+      "sha256": "64a5a28a3e0dbbc7fb8af9759c6304a8804f84fad82440f39bfe002c0a5c6c39",
+      "placement": "rel=icon metadata",
+      "crop": "None",
+      "alt": "Browser metadata, not an HTML content image",
+      "limitation": "Padded lockup; no exact icon-only source available for a faithful replacement",
+      "productScreen": false
+    },
+    {
+      "path": "public/assets/qr-app-store.svg",
+      "source": "Deterministic qrcode output from site.appStoreUrl",
+      "rights": "Project-generated functional QR geometry",
+      "decision": "Generate on build",
+      "owner": "Website engineering",
+      "width": 256,
+      "height": 256,
+      "format": "SVG",
+      "bytes": 2007,
+      "budgetBytes": 15000,
+      "sha256": "d25e5b1653c29fd13e10c5b125a94f4860a07b546dfba46ce942a458942b3af1",
+      "placement": "Desktop download area with ordinary clickable App Store link",
+      "crop": "None; retain white four-module quiet zone; no embedded logo",
+      "alt": "Scan to open Swiftora on the App Store",
+      "decodedUrl": "https://apps.apple.com/us/app/swiftora/id6760380351",
+      "physicalScanTested": false,
+      "productScreen": false
+    },
+    {
+      "path": "public/assets/social-card.png",
+      "source": "Editable design/social-card.svg composed by scripts/generate-assets.mjs from site.json and unchanged logo",
+      "rights": "Swiftora brand plus project-authored typography and geometric composition; no third-party photography",
+      "decision": "Generate on build",
+      "owner": "Brand / website engineering",
+      "width": 1200,
+      "height": 630,
+      "format": "PNG",
+      "bytes": 52722,
+      "budgetBytes": 200000,
+      "sha256": "29490fa7278f0d3f8cebc6c0504c6eaa8a80edc6954006fae511b1f50886c95b",
+      "placement": "Open Graph and social card metadata",
+      "crop": "Full 1200x630 composition; test platform crops before production release",
+      "alt": "Swiftora: For the way you sell secondhand. Listing assistance and ROI tracking. Available for iPhone.",
+      "productScreen": false,
+      "productMediaProvenanceRequired": false
+    }
+  ],
+  "productMedia": {
+    "status": "Not supplied; no screenshots, recordings, or visible placeholders fabricated",
+    "required": [
+      "Actual home/input screen",
+      "Actual listing draft result",
+      "Actual ROI screen"
+    ],
+    "provenance": [
+      "App version/build",
+      "Device",
+      "OS",
+      "Plan",
+      "Capture date",
+      "Screen state",
+      "Content rights"
+    ]
+  }
+}

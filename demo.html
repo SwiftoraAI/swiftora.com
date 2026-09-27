@@ -1,216 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Try Swiftora — See AI Listings Built in Seconds</title>
-  <meta name="description" content="Describe any vintage or resale item and watch Swiftora build a complete listing — title, description, pricing, tags, and condition notes in seconds." />
-  <link rel="canonical" href="https://www.swiftora.com/demo.html" />
-  <link rel="icon" href="/Logos/swiftora_icon_192x192.png" sizes="192x192" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get started with Swiftora | iPhone app</title>
+  <meta name="description" content="Get Swiftora for iPhone and explore listing assistance and ROI tracking for resale sellers.">
+  <link rel="canonical" href="https://www.swiftora.com/demo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Get started with Swiftora | iPhone app">
+  <meta property="og:description" content="Get Swiftora for iPhone and explore listing assistance and ROI tracking for resale sellers.">
+  <meta property="og:url" content="https://www.swiftora.com/demo.html">
+  
+  <link rel="icon" href="Logos/swiftora_icon_192x192.png" sizes="192x192">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .interim-container { width: min(100% - 40px, 1080px); margin-inline: auto; }
+    .interim-header { background: #372952; color: #fff; padding: 22px 0; }
+    .interim-header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 28px; }
+    .interim-logo { display: block; width: 180px; height: auto; }
+    .interim-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+    .interim-nav a, .interim-footer a { text-decoration: underline; text-underline-offset: 4px; }
+    .interim-nav a { display: inline-flex; min-height: 44px; align-items: center; }
+    .interim-nav .interim-store { padding: 9px 16px; border: 1px solid #fff; border-radius: 10px; }
+    .interim-main { padding-block: clamp(40px, 7vw, 88px); }
+    .interim-intro { max-width: 780px; margin-bottom: 44px; }
+    .interim-eyebrow { color: #372952; font-size: .875rem; font-weight: 700; letter-spacing: .06em; margin-bottom: 12px; }
+    .interim-main h1 { font-size: clamp(2.25rem, 5.5vw, 4rem); line-height: 1.12; letter-spacing: -.035em; margin-bottom: 22px; overflow-wrap: anywhere; }
+    .interim-intro > p:not(.interim-eyebrow):not(.interim-note) { font-size: 1.15rem; max-width: 66ch; }
+    .interim-main p { max-width: 72ch; }
+    .interim-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-block: 26px 12px; }
+    .interim-main a:not(.interim-button) { color: #372952; text-decoration: underline; text-underline-offset: 4px; }
+    .interim-button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 20px; background: #372952; color: #fff; border-radius: 10px; font-weight: 700; text-align: center; }
+    .interim-note { color: #555; font-size: .9rem; }
+    .interim-section { padding-block: 32px; border-top: 1px solid #ddd; }
+    .interim-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; margin-bottom: 16px; }
+    .interim-section h3 { font-size: 1.125rem; margin-bottom: 8px; }
+    .interim-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 28px; padding-top: 8px; }
+    .interim-steps { list-style: decimal; padding-left: 24px; }
+    .interim-steps li { padding-left: 8px; margin-block: 22px; }
+    .interim-action { margin-top: 20px; }
+    .interim-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 20px; }
+    .interim-download { margin-top: 32px; padding: 32px; background: #f7f7f8; border-radius: 16px; }
+    .interim-download h2 { font-size: 1.75rem; margin-bottom: 12px; }
+    .interim-download .interim-button { margin-block: 20px 12px; }
+    .interim-footer { background: #372952; color: #fff; padding-block: 36px; }
+    .interim-footer-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-block: 20px; }
+    .interim-copyright { font-size: .9rem; }
+    a:focus-visible { outline: 3px solid #b74616; outline-offset: 5px; }
+    .interim-header a:focus-visible, .interim-footer a:focus-visible { outline-color: #fff; }
+    .interim-skip { position: absolute; left: 16px; top: -100px; padding: 12px; background: #fff; color: #111; z-index: 2000; }
+    .interim-skip:focus { top: 12px; }
+    .interim-legacy-anchor { display: block; scroll-margin-top: 24px; }
+    @media (max-width: 480px) { .interim-container { width: calc(100% - 32px); } .interim-nav { gap: 6px 16px; } .interim-download { padding: 24px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
 <body>
-
-  <!-- ===== HEADER ===== -->
-  <header class="site-header" role="banner">
-    <div class="wrap header-inner">
-      <a href="index.html" aria-label="Swiftora home">
-        <img src="/swiftora_logo_transparent.png" alt="Swiftora" style="height:52px;width:auto;display:block;">
-      </a>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger-label" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="demo.html" class="active">Demo</a>
-        <a href="about.html">About</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="index.html#waitlist" class="nav-cta">Get Early Access</a>
-      </nav>
+  <a class="interim-skip" href="#main">Skip to content</a>
+  <header class="interim-header">
+    <div class="interim-container interim-header-inner">
+      <a href="index.html" aria-label="Swiftora home"><img class="interim-logo" src="swiftora_logo_transparent.png" width="1536" height="453" alt="Swiftora"></a>
+      <nav class="interim-nav" aria-label="Main navigation"><a href="demo.html" aria-current="page">Get started</a> <a href="pricing.html">Pricing</a> <a href="about.html">About</a> <a href="mailto:info@swiftora.com">Support</a> <a class="interim-store" href="https://apps.apple.com/us/app/swiftora/id6760380351">View on the App Store</a></nav>
     </div>
   </header>
-
-  <!-- ===== PAGE HERO ===== -->
-  <div class="demo-page-hero">
-    <h1>See Swiftora in action</h1>
-    <p>Upload photos of any vintage or resale item and watch Swiftora build a complete listing.</p>
-  </div>
-
-  <!-- ===== INPUT ===== -->
-  <div class="demo-input-section">
-
-    <!-- Step 1: Photo upload (primary) -->
-    <label class="demo-upload-area demo-upload-primary" id="upload-area" tabindex="0" role="button" aria-label="Upload item photos">
-      <input type="file" id="photo-input" accept="image/*" multiple />
-      <div class="upload-icon-wrap" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M12 3v13M8 7l4-4 4 4"/></svg>
-      </div>
-      <div class="upload-label">
-        <strong>Drop photos here or click to upload</strong>
-        <span>Front, back, base, and close-up work best. Multiple files supported.</span>
-      </div>
-    </label>
-
-    <div class="thumb-grid" id="thumb-grid" aria-label="Uploaded photo thumbnails"></div>
-
-    <!-- Step 2: Optional text details -->
-    <div class="demo-details-row">
-      <textarea
-        class="demo-textarea"
-        id="item-input"
-        placeholder="Add any details you know (optional) — brand, size, era, condition"
-        rows="2"
-        aria-label="Additional item details"
-      ></textarea>
+  <main class="interim-main interim-container" id="main">
+    <div class="interim-intro">
+      <p class="interim-eyebrow">Get started</p>
+      <h1>Meet Swiftora on iPhone.</h1>
+      
+      <p>Bring listing assistance and ROI tracking into your resale routine.</p>
+      <div class="interim-actions"><a class="interim-button" href="https://apps.apple.com/us/app/swiftora/id6760380351">View on the App Store</a></div>
+      <p class="interim-note">Free to download. In-app purchases available.</p>
     </div>
-
-    <!-- Step 3: Generate -->
-    <div class="demo-generate-row">
-      <button class="btn btn-primary btn-lg demo-generate-btn" id="generate-btn" type="button">
-        Generate Listing
-      </button>
-    </div>
-
-  </div>
-
-  <!-- ===== OUTPUT ===== -->
-  <div class="demo-output-section" id="output-section" hidden>
-
-    <!-- Analyzing pulse -->
-    <div class="output-card" id="output-analyzing" hidden>
-      <div class="output-loading">
-        <div class="spinner" aria-hidden="true"></div>
-        <span>Swiftora is reading your photos…</span>
-      </div>
-    </div>
-
-    <!-- Result card -->
-    <div class="output-card demo-result-card" id="output-result" hidden aria-live="polite">
-      <div class="output-result">
-
-        <div class="demo-result-header">
-          <div class="output-row-label">Generated listing</div>
-          <span class="demo-result-badge" id="result-category">Vintage Collectible</span>
-        </div>
-
-        <div id="result-title" class="output-title-text"></div>
-
-        <div class="output-price-row">
-          <span class="price-badge" id="result-price"></span>
-          <span class="price-rationale-text" id="result-rationale"></span>
-        </div>
-
-        <div>
-          <div class="output-row-label">Description</div>
-          <div id="result-description" class="output-desc-text"></div>
-        </div>
-
-        <div>
-          <div class="output-row-label">Condition notes</div>
-          <div id="result-condition" class="output-condition-text"></div>
-        </div>
-
-        <div>
-          <div class="output-row-label">Tags</div>
-          <div id="result-tags" class="tags-flex"></div>
-        </div>
-
-        <div class="output-actions">
-          <button class="btn btn-primary" id="copy-btn" type="button">Copy Listing</button>
-          <button class="btn btn-secondary" id="reset-btn" type="button">Try Another Item</button>
-          <span class="copy-confirm" id="copy-confirm" aria-live="polite">✓ Copied to clipboard</span>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ===== DARK CTA ===== -->
-  <section class="demo-cta-dark" id="demo-cta">
-    <div class="wrap demo-cta-inner">
-      <div class="demo-cta-copy">
-        <div class="section-label">Early access</div>
-        <h2 class="demo-cta-heading">Ready to use the real thing?</h2>
-        <p class="demo-cta-sub">The live product pulls real sold comps, identifies items from photos, and writes complete listings in seconds. Join the waitlist to get in first.</p>
-      </div>
-      <form class="demo-cta-form" id="demo-cta-form" novalidate>
-        <input
-          class="demo-email-input"
-          type="email"
-          id="demo-cta-email"
-          name="email"
-          placeholder="your@email.com"
-          required
-          autocomplete="email"
-          aria-label="Email address"
-        />
-        <button class="btn btn-primary" type="submit">Get Early Access →</button>
-      </form>
-      <p class="demo-cta-note">Or <a href="index.html#waitlist">fill out the full waitlist form</a> to tell us what you sell.</p>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <img src="/swiftora_logo_transparent.png" alt="Swiftora" style="height:40px;width:auto;display:block;filter:brightness(0) invert(1);">
-          <p class="footer-tagline">List faster. Price smarter.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="demo.html">Live Demo</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="index.html#waitlist">Early Access</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="about.html">About</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="mailto:info@swiftora.com">Contact</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="footer-year">2026</span> Swiftora LLC · All rights reserved</span>
-        <div class="footer-socials" aria-label="Social links">
-          <a href="https://www.instagram.com/swiftora_ai/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5Zm0 2A1.5 1.5 0 1 0 13.5 12 1.5 1.5 0 0 0 12 10.5Zm4.25-3.75a.75.75 0 1 1-.75.75.75.75 0 0 1 .75-.75Z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@swiftora_ai" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3c.4 2.3 2.1 4 4.4 4.3v2.4c-1.6-.1-3-.6-4.4-1.6v6.5a5.8 5.8 0 1 1-5.8-5.8c.4 0 .8 0 1.2.1v2.6a3.2 3.2 0 1 0 2 3V3h2.6Z"/></svg>
-          </a>
-          <a href="https://x.com/swiftora_ai" target="_blank" rel="noopener" aria-label="X (Twitter)">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h3.4l4.2 5.8L16.4 4H20l-6.5 8.4L20 20h-3.4l-4.7-6.3L7 20H4l6.9-8.7L4 4Z"/></svg>
-          </a>
-        </div>
-      </div>
+    <section class="interim-section">
+<h2>Getting started</h2>
+<ol class="interim-steps">
+<li><h3>Get the iPhone app</h3><p>Open Swiftora on the App Store to download the app and check device requirements.</p></li>
+<li><h3>Explore Swiftora</h3><p>Find listing assistance, ROI tracking and current plan details in the app.</p></li>
+<li><h3>Review before publishing</h3><p>Confirm the details of your item and choose an asking price you&#x27;re comfortable with.</p></li>
+</ol>
+</section>
+<section class="interim-section">
+<h2>Need a hand?</h2>
+<p>Find contact information and useful links on our support page.</p>
+<p class="interim-action"><a href="mailto:info@swiftora.com">Swiftora support</a></p>
+</section>
+    <section class="interim-download" id="download" aria-labelledby="download-title">
+      <span class="interim-legacy-anchor" id="waitlist" aria-hidden="true"></span>
+      <h2 id="download-title">Get Swiftora for iPhone.</h2>
+      <p>Find Swiftora on the App Store.</p>
+      <a class="interim-button" href="https://apps.apple.com/us/app/swiftora/id6760380351">View on the App Store</a>
+      <p class="interim-note">Free to download. In-app purchases available.</p>
+    </section>
+  </main>
+  <footer class="interim-footer">
+    <div class="interim-container">
+      <p>Listing assistance. ROI tracking.</p>
+      <nav aria-label="Footer navigation" class="interim-footer-links"><a href="https://apps.apple.com/us/app/swiftora/id6760380351">App Store</a> <a href="mailto:info@swiftora.com">Support</a> <a href="privacy.html">Website privacy</a> <a href="https://swiftora-backend-production.up.railway.app/privacy">App privacy</a> <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of use</a></nav>
+      <p class="interim-copyright">© 2026 Swiftora LLC</p>
     </div>
   </footer>
-
-  <script src="demo.js"></script>
-  <script>
-    window.__V = 'v2026-03-20-02';
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    // Demo CTA email capture — save to localStorage then redirect
-    document.getElementById('demo-cta-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = document.getElementById('demo-cta-email').value.trim();
-      if (!email) return;
-      try {
-        var list = JSON.parse(localStorage.getItem('swiftora_waitlist') || '[]');
-        list.push({ email: email, timestamp: new Date().toISOString(), source: 'demo-cta' });
-        localStorage.setItem('swiftora_waitlist', JSON.stringify(list));
-      } catch (_) {}
-      window.location.href = 'index.html#waitlist';
-    });
-  </script>
-
 </body>
 </html>

@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import DownloadCTA from '../components/DownloadCTA.astro';
+import GuideLinks from '../components/GuideLinks.astro';
+import { guides } from '../data/site';
+---
+<SiteLayout title="Reseller guides: listings, costs and workflow | Swiftora" description="Practical guides for secondhand sellers: write clearer listings, understand resale ROI and build a repeatable routine for thrift and vintage finds." path="/guides.html">
+  <section class="page-intro guide-hub-intro"><div class="shell"><p class="eyebrow">The seller’s notebook</p><h1>Good finds.<br /><span>Better-informed selling.</span></h1><p class="lead">The work between finding an item and selling it matters. Start with a clearer listing, an honest look at your costs, and a routine you can use again next week.</p></div></section>
+  <section class="shell section-space guide-hub" aria-labelledby="guides-heading"><div class="section-intro"><div><p class="eyebrow">Practical reseller guides</p><h2 id="guides-heading">Work through the details.</h2></div><p>For thrift flippers, vintage sellers,<br class="desktop-break" /> and collectors who sell.</p></div><GuideLinks guides={guides} /></section>
+  <section class="guide-app-note"><div class="shell"><p class="eyebrow">Put the work into practice</p><h2>Meet Swiftora.</h2><p>Swiftora brings listing assistance and ROI tracking to your iPhone. These guides explain the broader selling process; explore what’s available in the app before choosing your workflow.</p><a class="text-link" href="/demo.html">How Swiftora fits your resale routine <span aria-hidden="true">↗</span></a></div></section>
+  <DownloadCTA />
+</SiteLayout>

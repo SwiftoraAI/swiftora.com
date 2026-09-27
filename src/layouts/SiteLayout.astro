@@ -1,0 +1,68 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+import '../styles/brand.css';
+import '../styles/editorial.css';
+interface Props { title: string; description: string; path: string; noindex?: boolean; structuredData?: Record<string, unknown>[] }
+const { title, description, path, noindex = false, structuredData = [] } = Astro.props;
+const canonical = new URL(path, site.canonicalOrigin).href;
+const socialImage = `${site.canonicalOrigin}/assets/social-card.png`;
+const schema = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'WebSite', '@id': `${site.canonicalOrigin}/#website`, name: site.name, url: `${site.canonicalOrigin}/` },
+  { '@type': 'Organization', '@id': `${site.canonicalOrigin}/#organization`, name: site.operator, url: `${site.canonicalOrigin}/`, email: site.supportEmail, logo: `${site.canonicalOrigin}/assets/brand/wordmark.png` },
+  { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${site.canonicalOrigin}/#website` } },
+  ...structuredData,
+] };
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#140415" />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Swiftora. Listing assistance and ROI tracking, available for iPhone." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header currentPath={path} />
+    <main id="main" tabindex="-1"><slot /></main>
+    <Footer />
+    <script>
+      // Old URLs retain an actual anchor for no-JS navigation. Enhanced navigation
+      // moves focus to the same visible download section on load or hash changes.
+      const handleLegacyFragment = () => {
+        if (location.hash !== '#waitlist') return;
+        const target = document.getElementById('download');
+        if (target) { target.scrollIntoView(); target.focus({ preventScroll: true }); }
+      };
+      // Native initial fragment navigation can move focus after module execution.
+      // Run after load/restore so old index.html links receive the same focus.
+      const settleLegacyFragment = () => requestAnimationFrame(handleLegacyFragment);
+      if (document.readyState === 'complete') settleLegacyFragment();
+      else window.addEventListener('load', settleLegacyFragment, { once: true });
+      window.addEventListener('pageshow', settleLegacyFragment);
+      window.addEventListener('hashchange', settleLegacyFragment);
+    </script>
+  </body>
+</html>

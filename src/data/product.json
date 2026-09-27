@@ -1,0 +1,13 @@
+{
+  "availableFor": "iPhone",
+  "downloadNote": "Free to download. In-app purchases available.",
+  "features": [
+    { "id": "listing", "title": "Listing assistance", "description": "Get help with your next resale listing.", "evidence": "Store-published; owner confirmed basic functionality on 2026-09-26." },
+    { "id": "roi", "title": "ROI tracking", "description": "Keep track of your return on investment.", "evidence": "Owner-confirmed on 2026-09-26; exact screen and calculation behavior pending." }
+  ],
+  "showExactPlans": false,
+  "plans": [],
+  "productMedia": [],
+  "connectorsAvailable": false,
+  "claimsReviewedOn": "2026-09-26"
+}
